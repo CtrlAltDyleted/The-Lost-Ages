@@ -1,5 +1,4 @@
 forgefrontierlostages/managed/kubejs/client_scripts/Lost Ages/AE2/Hide_AE2_Facades.js|kubejs/client_scripts/Lost Ages/AE2/Hide_AE2_Facades.js
-forgefrontierlostages/managed/config/ftbquests/quests/chapters/applied_energistics.snbt|config/ftbquests/quests/chapters/applied_energistics.snbt
 forgefrontierlostages/managed/config/ftbquests/quests/chapters/mob_grinding_utils.snbt|config/ftbquests/quests/chapters/mob_grinding_utils.snbt
 forgefrontierlostages/managed/kubejs/assets/ftb/textures/ae_screenshot.png|kubejs/assets/ftb/textures/ae_screenshot.png
 forgefrontierlostages/managed/kubejs/assets/ftb/textures/certus_quartz_contraption.png|kubejs/assets/ftb/textures/certus_quartz_contraption.png

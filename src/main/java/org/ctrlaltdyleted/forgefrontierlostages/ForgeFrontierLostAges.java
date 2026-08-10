@@ -17,6 +17,7 @@ import org.ctrlaltdyleted.forgefrontierlostages.config.JeiBlacklistManager;
 import org.ctrlaltdyleted.forgefrontierlostages.config.ResourceVentsConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.install.KubeJsScriptManager;
 import org.ctrlaltdyleted.forgefrontierlostages.install.ManagedFileInstaller;
+import org.ctrlaltdyleted.forgefrontierlostages.quests.AppliedEnergisticsQuestPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.quests.QuestMetadataPatcher;
 import org.slf4j.Logger;
 
@@ -55,6 +56,7 @@ public class ForgeFrontierLostAges
         KubeJsScriptManager.patchExternalCompactingRecipes();
         ManagedFileInstaller.install();
         QuestMetadataPatcher.patch();
+        AppliedEnergisticsQuestPatcher.patch();
         Ae2ClientConfigPatcher.patch();
         LOGGER.info("Initializing The Lost Ages");
     }
