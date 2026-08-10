@@ -22,11 +22,14 @@ public final class AppliedEnergisticsQuestPatcher
 {
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    private static final Path TARGET_CHAPTER_PATH = FMLPaths.CONFIGDIR.get()
-            .resolve("ftbquests")
-            .resolve("quests")
-            .resolve("chapters")
-            .resolve("applied_energistics.snbt");
+    private static Path defaultTargetChapterPath()
+    {
+        return FMLPaths.CONFIGDIR.get()
+                .resolve("ftbquests")
+                .resolve("quests")
+                .resolve("chapters")
+                .resolve("applied_energistics.snbt");
+    }
     private static final String RESOURCE_PATH = "/forgefrontierlostages/managed/ftbquests/applied_energistics_additions.snbt";
     private static final List<String> EXPECTED_QUEST_IDS = List.of(
             "42566AC194215C82",
@@ -53,7 +56,11 @@ public final class AppliedEnergisticsQuestPatcher
         {
             return;
         }
+        patch(defaultTargetChapterPath(), bundledFragment);
+    }
 
+    static void patch(Path targetChapterPath, String bundledFragment)
+    {
         final List<QuestObject> bundledQuests;
         try
         {
@@ -65,31 +72,31 @@ public final class AppliedEnergisticsQuestPatcher
             return;
         }
 
-        if (Files.notExists(TARGET_CHAPTER_PATH))
+        if (Files.notExists(targetChapterPath))
         {
-            LOGGER.warn("AE2 quest chapter not found, skipping patch: {}", TARGET_CHAPTER_PATH);
+            LOGGER.warn("AE2 quest chapter not found, skipping patch: {}", targetChapterPath);
             return;
         }
 
         final String runtimeChapter;
         try
         {
-            runtimeChapter = Files.readString(TARGET_CHAPTER_PATH, StandardCharsets.UTF_8);
+            runtimeChapter = Files.readString(targetChapterPath, StandardCharsets.UTF_8);
         }
         catch (IOException e)
         {
-            LOGGER.error("Failed reading existing AE2 quest chapter {}", TARGET_CHAPTER_PATH, e);
+            LOGGER.error("Failed reading existing AE2 quest chapter {}", targetChapterPath, e);
             return;
         }
 
         final ListRange runtimeQuestsList;
         try
         {
-            runtimeQuestsList = findTopLevelListRange(runtimeChapter, "quests", TARGET_CHAPTER_PATH.toString());
+            runtimeQuestsList = findTopLevelListRange(runtimeChapter, "quests", targetChapterPath.toString());
         }
         catch (IllegalArgumentException e)
         {
-            LOGGER.error("Unable to locate top-level quests list in AE2 quest chapter {}: {}", TARGET_CHAPTER_PATH, e.getMessage());
+            LOGGER.error("Unable to locate top-level quests list in AE2 quest chapter {}: {}", targetChapterPath, e.getMessage());
             return;
         }
 
@@ -100,7 +107,7 @@ public final class AppliedEnergisticsQuestPatcher
         }
         catch (IllegalArgumentException e)
         {
-            LOGGER.error("Unable to parse quest objects in AE2 quest chapter {}: {}", TARGET_CHAPTER_PATH, e.getMessage());
+            LOGGER.error("Unable to parse quest objects in AE2 quest chapter {}: {}", targetChapterPath, e.getMessage());
             return;
         }
 
@@ -123,21 +130,21 @@ public final class AppliedEnergisticsQuestPatcher
             }
         }
 
-        final String updatedChapter = applyQuestPatches(runtimeChapter, runtimeQuests, bundledQuests);
+        final String updatedChapter = applyQuestPatches(runtimeChapter, runtimeQuests, bundledQuests, targetChapterPath.toString());
         if (updatedChapter.equals(runtimeChapter))
         {
-            LOGGER.info("AE2 quest chapter already matches bundled Lost Ages additions: {}", TARGET_CHAPTER_PATH);
+            LOGGER.info("AE2 quest chapter already matches bundled Lost Ages additions: {}", targetChapterPath);
             return;
         }
 
         try
         {
-            writeAtomically(TARGET_CHAPTER_PATH, updatedChapter);
-            LOGGER.info("Patched AE2 quest chapter with Lost Ages additions: {}", TARGET_CHAPTER_PATH);
+            writeAtomically(targetChapterPath, updatedChapter);
+            LOGGER.info("Patched AE2 quest chapter with Lost Ages additions: {}", targetChapterPath);
         }
         catch (IOException e)
         {
-            LOGGER.error("Failed writing patched AE2 quest chapter {}", TARGET_CHAPTER_PATH, e);
+            LOGGER.error("Failed writing patched AE2 quest chapter {}", targetChapterPath, e);
         }
     }
 
@@ -191,7 +198,7 @@ public final class AppliedEnergisticsQuestPatcher
         return questObjects;
     }
 
-    private static String applyQuestPatches(String content, List<QuestObject> runtimeQuests, List<QuestObject> bundledQuests)
+    private static String applyQuestPatches(String content, List<QuestObject> runtimeQuests, List<QuestObject> bundledQuests, String targetPath)
     {
         String updated = content;
         final LinkedHashMap<String, QuestObject> runtimeObjectsById = new LinkedHashMap<>();
@@ -234,7 +241,7 @@ public final class AppliedEnergisticsQuestPatcher
         final ListRange updatedListRange;
         try
         {
-            updatedListRange = findTopLevelListRange(updated, "quests", TARGET_CHAPTER_PATH.toString());
+            updatedListRange = findTopLevelListRange(updated, "quests", targetPath);
         }
         catch (IllegalArgumentException e)
         {
