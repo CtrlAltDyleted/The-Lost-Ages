@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.forgefrontierlostages;
+package org.ctrlaltdyleted.forgefrontierlostages.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

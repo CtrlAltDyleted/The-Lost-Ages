@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.forgefrontierlostages;
+package org.ctrlaltdyleted.forgefrontierlostages.config;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;

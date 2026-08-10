@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.forgefrontierlostages;
+package org.ctrlaltdyleted.forgefrontierlostages.install;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -29,7 +29,11 @@ public final class ManagedFileInstaller
             managedPath("kubejs", "server_scripts", LEGACY_LOST_AGES_FOLDER, "Easy_Villagers_Changes.js"),
             managedPath("kubejs", "startup_scripts", LEGACY_LOST_AGES_FOLDER, "Lost_Ages_Bootstrap.js"),
             managedPath("kubejs", "startup_scripts", "Lost Ages", "Lost_Ages_Bootstrap.js"),
-            managedPath("kubejs", "client_scripts", LEGACY_LOST_AGES_FOLDER, "Hide_AE2_Facades.js")
+            managedPath("kubejs", "client_scripts", LEGACY_LOST_AGES_FOLDER, "Hide_AE2_Facades.js"),
+            managedPath("kubejs", "server_scripts", "Lost Ages", "AE2_Changes.js"),
+            managedPath("kubejs", "server_scripts", "Lost Ages", "Botany_Pots_Changes.js"),
+            managedPath("kubejs", "server_scripts", "Lost Ages", "Easy_Villagers_Changes.js"),
+            managedPath("kubejs", "client_scripts", "Lost Ages", "Hide_AE2_Facades.js")
     );
 
     private ManagedFileInstaller()

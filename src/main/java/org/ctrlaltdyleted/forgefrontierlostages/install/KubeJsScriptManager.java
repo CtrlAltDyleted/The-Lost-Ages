@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.forgefrontierlostages;
+package org.ctrlaltdyleted.forgefrontierlostages.install;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.loading.FMLPaths;

@@ -1,4 +1,4 @@
-package org.ctrlaltdyleted.forgefrontierlostages;
+package org.ctrlaltdyleted.forgefrontierlostages.quests;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class QuestFilePatcher
+public final class QuestMetadataPatcher
 {
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -31,7 +31,7 @@ public final class QuestFilePatcher
     private static final Pattern THEME_SECTION_HEADER = Pattern.compile("^\\s*\\[[^\\]]+\\]\\s*$");
     private static final Pattern THEME_BACKGROUND_LINE = Pattern.compile("^\\s*background\\s*:\\s*.*$");
 
-    private QuestFilePatcher()
+    private QuestMetadataPatcher()
     {
     }
 

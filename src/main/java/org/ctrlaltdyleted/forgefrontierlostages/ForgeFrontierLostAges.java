@@ -12,6 +12,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.ctrlaltdyleted.forgefrontierlostages.config.Ae2ClientConfigPatcher;
+import org.ctrlaltdyleted.forgefrontierlostages.config.JeiBlacklistManager;
+import org.ctrlaltdyleted.forgefrontierlostages.config.ResourceVentsConfigPatcher;
+import org.ctrlaltdyleted.forgefrontierlostages.install.KubeJsScriptManager;
+import org.ctrlaltdyleted.forgefrontierlostages.install.ManagedFileInstaller;
+import org.ctrlaltdyleted.forgefrontierlostages.quests.QuestMetadataPatcher;
 import org.slf4j.Logger;
 
 @Mod(ForgeFrontierLostAges.MOD_ID)
@@ -48,7 +54,7 @@ public class ForgeFrontierLostAges
         ResourceVentsConfigPatcher.patch();
         KubeJsScriptManager.patchExternalCompactingRecipes();
         ManagedFileInstaller.install();
-        QuestFilePatcher.patch();
+        QuestMetadataPatcher.patch();
         Ae2ClientConfigPatcher.patch();
         LOGGER.info("Initializing The Lost Ages");
     }
