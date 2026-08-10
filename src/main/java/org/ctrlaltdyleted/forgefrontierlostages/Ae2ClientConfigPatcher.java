@@ -7,6 +7,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.slf4j.Logger;
 
@@ -30,6 +32,11 @@ public final class Ae2ClientConfigPatcher
 
     public static void patch()
     {
+        if (FMLEnvironment.dist != Dist.CLIENT)
+        {
+            return;
+        }
+
         final Path configPath = FMLPaths.CONFIGDIR.get().resolve("ae2").resolve("client.json");
         final Path parent = configPath.getParent();
 
