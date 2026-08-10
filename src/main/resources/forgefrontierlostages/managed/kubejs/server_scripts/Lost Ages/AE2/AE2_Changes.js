@@ -64,6 +64,7 @@ ServerEvents.recipes(function(event) {
         'appflux:fe_256m_cell'
     );
 
+    event.remove({ id: 'appliedcreate:creative_motor_from_stress_cell' });
     event.remove({ id: 'appliedcreate:creative_stress_cell' });
 
     addSuperheatedCompactingRecipe(
