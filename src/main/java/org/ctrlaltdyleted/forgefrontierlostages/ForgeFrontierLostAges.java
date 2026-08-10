@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ctrlaltdyleted.forgefrontierlostages.config.Ae2ClientConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.config.JeiBlacklistManager;
+import org.ctrlaltdyleted.forgefrontierlostages.config.LogBegoneConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.config.ResourceVentsConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.install.KubeJsScriptManager;
 import org.ctrlaltdyleted.forgefrontierlostages.install.ManagedFileInstaller;
@@ -53,6 +54,7 @@ public class ForgeFrontierLostAges
 
         JeiBlacklistManager.removeAutoTraderBlacklistEntry();
         ResourceVentsConfigPatcher.patch();
+        LogBegoneConfigPatcher.patch();
         KubeJsScriptManager.patchExternalCompactingRecipes();
         ManagedFileInstaller.install();
         QuestMetadataPatcher.patch();
