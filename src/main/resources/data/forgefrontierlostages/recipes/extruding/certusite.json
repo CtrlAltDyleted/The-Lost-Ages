@@ -1,0 +1,21 @@
+{
+  "type": "create_mechanical_extruder:extruding",
+  "catalyst": {
+    "item": "create_resource_vents:active_certusite_vent"
+  },
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "minecraft:lava",
+      "nbt": {}
+    },
+    {
+      "amount": 1000,
+      "fluid": "create_ethium:echo_compound_fluid",
+      "nbt": {}
+    }
+  ],
+  "result": {
+    "item": "forgefrontierlostages:certusite"
+  }
+}

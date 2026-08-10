@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "forgefrontierlostages:skystonium"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "item": "ae2:sky_dust",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "create_mechanical_extruder:extruding",
+  "catalyst": {
+    "item": "create_resource_vents:active_skystonium_vent"
+  },
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "minecraft:lava",
+      "nbt": {}
+    },
+    {
+      "amount": 1000,
+      "fluid": "create_enchantment_industry:ink",
+      "nbt": {}
+    }
+  ],
+  "result": {
+    "item": "forgefrontierlostages:skystonium"
+  }
+}

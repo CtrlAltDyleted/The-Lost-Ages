@@ -1,0 +1,27 @@
+# Gradle / build output
+.gradle/
+build/
+
+# Forge development runs
+run/
+run-data/
+
+# IDE files
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+*.launch
+bin/
+out/
+
+# Local development dependencies and references
+dev-libs/
+.texture-references/
+
+# Local release notes
+CURSEFORGE_PROJECT.md

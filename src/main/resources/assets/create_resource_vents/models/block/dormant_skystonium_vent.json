@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "create_resource_vents:block/dormant_skystonium_vent"
+  }
+}

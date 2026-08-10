@@ -1,0 +1,6 @@
+{
+  "block.create_resource_vents.active_certusite_vent": "Active Certusite Vent",
+  "block.create_resource_vents.dormant_certusite_vent": "Dormant Certusite Vent",
+  "block.create_resource_vents.active_skystonium_vent": "Active Skystonium Vent",
+  "block.create_resource_vents.dormant_skystonium_vent": "Dormant Skystonium Vent"
+}

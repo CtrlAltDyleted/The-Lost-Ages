@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "advanced_ae"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "appflux"
+        }
+      ],
+      "recipe": {
+        "type": "advanced_ae:reaction",
+        "energy": 200000,
+        "fluid": {
+          "fluidStack": {
+            "Amount": 1000,
+            "FluidName": "minecraft:lava"
+          }
+        },
+        "input_items": [
+          {
+            "amount": 8,
+            "ingredient": {
+              "item": "appflux:harden_insulating_resin"
+            }
+          },
+          {
+            "amount": 8,
+            "ingredient": {
+              "item": "appflux:redstone_crystal"
+            }
+          },
+          {
+            "amount": 8,
+            "ingredient": {
+              "item": "ae2:sky_stone_block"
+            }
+          }
+        ],
+        "output": {
+          "#": 16,
+          "#c": "ae2:i",
+          "id": "appflux:sky_harden_insulating_resin"
+        }
+      }
+    }
+  ]
+}

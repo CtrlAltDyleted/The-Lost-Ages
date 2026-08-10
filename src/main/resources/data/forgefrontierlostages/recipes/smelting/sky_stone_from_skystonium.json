@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "ingredient": {
+    "item": "forgefrontierlostages:skystonium"
+  },
+  "result": "ae2:sky_stone_block",
+  "experience": 0.0,
+  "cookingtime": 200
+}

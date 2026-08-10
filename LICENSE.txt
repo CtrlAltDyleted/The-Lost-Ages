@@ -1,0 +1,68 @@
+The Lost Ages Custom License
+
+Copyright © 2026 CtrlAltDyleted
+All Rights Reserved.
+
+1. OWNERSHIP
+
+All original portions of The Lost Ages, including original
+source code, quest text, quest structure, progression design, configuration,
+data files, original textures, documentation, and other original creative
+content, are owned by CtrlAltDyleted.
+
+2. PERMITTED USE
+
+Permission is granted to download and run unmodified compiled releases of
+The Lost Ages for personal gameplay and on private or public
+Minecraft servers.
+
+CurseForge and other distribution platforms expressly authorized by the
+copyright owner may distribute official compiled releases.
+
+3. MODPACK USE
+
+Modpack authors may reference this project through an official CurseForge
+dependency or another distribution method expressly approved by the copyright
+owner. The compiled JAR may not be rehosted, bundled, mirrored, or redistributed
+independently without prior written permission.
+
+4. RESTRICTIONS
+
+Without prior written permission, you may not copy, modify, adapt, translate,
+publish, redistribute, rehost, sublicense, sell, commercially exploit, or create
+a derivative project from the original portions of this project.
+
+You may not claim ownership or authorship of this project or its original
+content.
+
+5. THIRD-PARTY MATERIAL
+
+This license applies only to the original portions of The Lost Ages.
+Minecraft, Create: Forge Frontier, referenced mods, and all third-party code
+and assets remain the property of their respective owners and are governed by
+their respective licenses.
+
+Certain vent texture material is adapted from Create: Molten Vents under the
+MIT License.
+
+Portions of the Certusite and Skystonium vent models, blockstates, and
+world-generation data are adapted from Create: Resource Vents under the MIT
+License.
+
+See THIRD_PARTY_NOTICES.md and the licenses directory for complete
+attribution and applicable third-party license texts.
+
+6. NO AFFILIATION
+
+The Lost Ages is an independent, unofficial companion project and is not
+affiliated with, endorsed by, or maintained by the Create: Forge Frontier
+developers. Create: Forge Frontier and the names of third-party mods belong to
+their respective owners. This project does not claim ownership of third-party
+code, assets, names, or trademarks.
+
+7. DISCLAIMER
+
+THE PROJECT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM
+EXTENT PERMITTED BY LAW, THE COPYRIGHT OWNER SHALL NOT BE LIABLE FOR CLAIMS,
+DAMAGES, DATA LOSS, SERVER DAMAGE, OR OTHER LIABILITY ARISING FROM USE OF THE
+PROJECT.
