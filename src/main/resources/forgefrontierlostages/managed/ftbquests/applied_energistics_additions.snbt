@@ -1,0 +1,332 @@
+{
+    quests: [
+{
+			dependencies: ["47C06EEDF3FEF708"]
+			description: ["Charged Redstone can be obtained from charging Redstone Crystals via a Charger or Reaction Chamber."]
+			id: "42566AC194215C82"
+			rewards: [
+				{
+					count: 8
+					id: "77690F0490FB1CE9"
+					item: "appflux:charged_redstone"
+					type: "item"
+				}
+				{
+					id: "3705FC79DAAE6DCC"
+					type: "xp"
+					xp: 150
+				}
+			]
+			tasks: [{
+				id: "0882E2DA61A5C473"
+				item: "appflux:charged_redstone"
+				type: "item"
+			}]
+			x: -5.0d
+			y: 6.5d
+		},
+{
+			dependencies: ["42566AC194215C82"]
+			description: ["The Energy Circuit is an essential crafting component that’s used to make the Energy Processor. The Energy Processor, in turn, is a key part of crafting energy components for your FE Storage Cells."]
+			icon: "appflux:energy_processor"
+			id: "2FF9D061A1268FF9"
+			rewards: [
+				{
+					count: 4
+					id: "5AF45F5950BA77EB"
+					item: "appflux:energy_processor"
+					type: "item"
+				}
+				{
+					id: "623B9920CE29F58F"
+					type: "xp"
+					xp: 200
+				}
+			]
+			tasks: [
+				{
+					id: "6CEEA48E0A72E8C3"
+					item: "appflux:printed_energy_processor"
+					type: "item"
+				}
+				{
+					id: "2A1B7A0ADD4A498F"
+					item: "appflux:energy_processor"
+					type: "item"
+				}
+			]
+			title: "Energy Processing"
+			x: -5.0d
+			y: 8.5d
+		},
+{
+			dependencies: ["2FF9D061A1268FF9"]
+			description: ["The Flux Accessor pulls FE directly from your Generator Coil or any other power source and stores it inside the FE Power Cell. Feed power into it using cables or set it down directly next to the Carbon Brushes of your New Age Generator. To put this stored energy to use, check out the next quest about the Inductor Card."]
+			id: "4213D8B68B2D8546"
+			rewards: [
+				{
+					id: "5E4B8123BFE0D821"
+					item: "appflux:flux_accessor"
+					type: "item"
+				}
+				{
+					id: "7EDF3563E4A60182"
+					type: "xp"
+					xp: 250
+				}
+			]
+			tasks: [{
+				id: "37D1A34283AAB666"
+				item: "appflux:flux_accessor"
+				type: "item"
+			}]
+			x: -5.0d
+			y: 10.0d
+		},
+{
+			dependencies: ["2AE3AE7CF1CE0E2C"]
+			description: ["Redstone Crystals are made by mixing Redstone, Fluix Dust, and Sky Stone Dust. They are used to make processors from Applied Flux - an AE2 energy storage addon."]
+			id: "47C06EEDF3FEF708"
+			rewards: [
+				{
+					count: 8
+					id: "75D54358BA0583AB"
+					item: "appflux:redstone_crystal"
+					type: "item"
+				}
+				{
+					id: "4B828732032A1D90"
+					type: "xp"
+					xp: 100
+				}
+			]
+			tasks: [{
+				id: "71968A62D626B0C7"
+				item: "appflux:redstone_crystal"
+				type: "item"
+			}]
+			x: -7.0d
+			y: 6.5d
+		},
+{
+			dependencies: ["5DCD053910B7069C"]
+			description: ["Insulating Resin is used to make FE Storage Cells from Applied Flux."]
+			hide_dependency_lines: true
+			id: "4B57B4C9692E87BC"
+			rewards: [
+				{
+					count: 4
+					id: "16B5713295D2254C"
+					item: "appflux:insulating_resin"
+					type: "item"
+				}
+				{
+					id: "426FD137798E00AE"
+					type: "xp"
+					xp: 100
+				}
+			]
+			tasks: [{
+				id: "65B9159435198A48"
+				item: "appflux:insulating_resin"
+				type: "item"
+			}]
+			x: -7.0d
+			y: 7.5d
+		},
+{
+			dependencies: ["4B57B4C9692E87BC"]
+			description: ["Smelt your Insulating Resin to get Hardened Insulating Resin - capable of withstanding the high voltage contained within Energy Cells."]
+			id: "54BCEB6981101EE3"
+			rewards: [
+				{
+					count: 4
+					id: "56BCD36346165DDA"
+					item: "appflux:harden_insulating_resin"
+					type: "item"
+				}
+				{
+					id: "29B120BD3CB2E2DE"
+					type: "xp"
+					xp: 150
+				}
+			]
+			tasks: [{
+				id: "6E0141C871E14477"
+				item: "appflux:harden_insulating_resin"
+				type: "item"
+			}]
+			x: -7.0d
+			y: 8.5d
+		},
+{
+			dependencies: ["54BCEB6981101EE3"]
+			description: ["The FE Cell Housing is a modular casing for assembling FE Cells of varying tiers. Once crafted, simply insert the energy storage components into the housing to complete your FE Cell."]
+			id: "7B4DC3DDDD71FDC9"
+			rewards: [
+				{
+					id: "26F0CB90B766C5D7"
+					item: "createcompression:compressed_redstone_3x"
+					type: "item"
+				}
+				{
+					id: "40C4EA5A3D227F0A"
+					type: "xp"
+					xp: 250
+				}
+			]
+			tasks: [{
+				id: "4538EC7673E46D54"
+				item: "appflux:fe_cell_housing"
+				type: "item"
+			}]
+			x: -7.0d
+			y: 10.0d
+		},
+{
+			dependencies: ["7B4DC3DDDD71FDC9"]
+			description: ["The 1k FE Cell holds 4.2 GFE, but the ME Terminal shows it stores exactly 4,294,967,296 FE. This is more than enough energy storage for most needs, but if you want to build a higher-tier cell, more power to you!"]
+			id: "444043822C11DE7E"
+			rewards: [
+				{
+					count: 4
+					id: "0F160DF59EC6505E"
+					item: "appflux:energy_processor"
+					type: "item"
+				}
+				{
+					id: "63761C3FFBEF5C2E"
+					type: "xp"
+					xp: 300
+				}
+			]
+			tasks: [{
+				id: "04983685A2BD2D9D"
+				item: {
+					Count: 1
+					id: "appflux:fe_1k_cell"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: -7.0d
+			y: 11.5d
+		},
+{
+			dependencies: ["4213D8B68B2D8546"]
+			description: [
+				"The Induction Card allows certain machines to use the FE stored in your ME system. The best way to use the power is to place an induction card into a cable subpart ME Interface and face that Interface into the Energizer or Energetic Blaze Burner. The Energy will transfer from the Interface to the machine."
+				""
+				"It can also be used with a Portable FE Cell to wirelessly charge items in your inventory."
+			]
+			id: "398D0D8B52F362A8"
+			rewards: [
+				{
+					id: "1B6F821A833B79E7"
+					item: "appflux:induction_card"
+					type: "item"
+				}
+				{
+					id: "658A682C231ACB90"
+					type: "xp"
+					xp: 300
+				}
+			]
+			tasks: [{
+				id: "73C24C934909F25A"
+				item: "appflux:induction_card"
+				type: "item"
+			}]
+			x: -5.0d
+			y: 11.5d
+		},
+{
+			dependencies: ["444043822C11DE7E"]
+			description: ["The Portable FE Cell stores energy for on-the-go use. Store FE inside it using an IO port, and charge it using a charger or energizer. Insert an Induction Card into it using to enable wireless charging of items in your inventory while you explore!"]
+			id: "0D2E92335FE90783"
+			rewards: [
+				{
+					count: 4
+					id: "1C1B84A427781981"
+					item: {
+						Count: 1
+						id: "ae2:energy_cell"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "7D311DC04C81E7B7"
+					type: "xp"
+					xp: 200
+				}
+			]
+			tasks: [{
+				id: "40F7F375C73D766E"
+				item: {
+					Count: 1
+					id: "appflux:fe_1k_portable_cell"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: -6.0d
+			y: 11.5d
+		},
+{
+			dependencies: ["3C1A865BF6781409"]
+			description: [
+				"These Resource Vents can be found on the surface of Mercury. "
+				""
+				"However, it seems that unfortunately the planet has began reclaiming some of these vents. If the vent you find has been reclaimed by the lava, venture forth and find another!"
+			]
+			icon: "create_resource_vents:dormant_certusite_vent"
+			id: "4F1BEB3735E8FAF3"
+			rewards: [
+				{
+					count: 32
+					id: "0A481CD8C5B7EEB8"
+					item: "ae2:certus_quartz_dust"
+					type: "item"
+				}
+				{
+					count: 32
+					id: "0DBFFF89CC4CB459"
+					item: "ae2:sky_dust"
+					type: "item"
+				}
+				{
+					id: "670E3E80B20BD23C"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+			]
+			shape: "pentagon"
+			size: 1.25d
+			subtitle: "Mercury's Second Best Kept Secret"
+			tasks: [
+				{
+					icon: "create_resource_vents:dormant_certusite_vent"
+					id: "509546A13DDE4D07"
+					observe_type: 0
+					timer: 0L
+					title: "Locate A Certusite Vent"
+					to_observe: "create_resource_vents:dormant_certusite_vent"
+					type: "observation"
+				}
+				{
+					icon: "create_resource_vents:dormant_skystonium_vent"
+					id: "48A7652B86D5006D"
+					observe_type: 0
+					timer: 0L
+					title: "Locate a Skystonium Vent"
+					to_observe: "create_resource_vents:dormant_skystonium_vent"
+					type: "observation"
+				}
+			]
+			title: "Two New Vents!"
+			x: -8.0d
+			y: -4.0d
+		}
+    ]
+}
