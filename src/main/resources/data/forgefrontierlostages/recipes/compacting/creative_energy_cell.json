@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluid": "forge_frontier:creative_energy_fluid",
+      "amount": 1000
+    },
+    {
+      "item": "create_additions_synthetics:creative_core"
+    },
+    {
+      "item": "megacells:mega_energy_cell"
+    }
+  ],
+  "results": [
+    {
+      "item": "ae2:creative_energy_cell",
+      "count": 1
+    }
+  ],
+  "heatRequirement": "superheated"
+}

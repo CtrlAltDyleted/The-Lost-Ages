@@ -21,7 +21,9 @@ public final class ManagedFileInstaller
     private static final String LEGACY_LOST_AGES_FOLDER = "lost_ages";
     private static final List<String> REQUIRED_RETIRED_MANAGED_PATHS = List.of(
             managedPath("kubejs", "startup_scripts", "Lost Ages", "Resource_Vents.js"),
-            managedPath("kubejs", "server_scripts", "Lost Ages", "Resource Vents", "Sequenced_Assembly_Recipes.js")
+            managedPath("kubejs", "server_scripts", "Lost Ages", "Resource Vents", "Sequenced_Assembly_Recipes.js"),
+            managedPath("kubejs", "server_scripts", "Lost Ages", "AE2", "AE2_Changes.js"),
+            managedPath("kubejs", "client_scripts", "Lost Ages", "AE2", "Hide_AE2_Facades.js")
     );
     private static final List<String> OBSOLETE_MANAGED_PATHS = List.of(
             "kubejs/server_scripts/forgefrontierlostages_ae2_changes.js",
@@ -97,28 +99,28 @@ public final class ManagedFileInstaller
             final Path retiredPath = gameDir.resolve(Paths.get(relativePathText).normalize()).normalize();
             if (!retiredPath.startsWith(gameDir))
             {
-                throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS path escapes the game directory: " + retiredPath);
+                throw new RuntimeException("Retired Lost Ages managed KubeJS path escapes the game directory: " + retiredPath);
             }
 
             try
             {
                 if (!Files.exists(retiredPath))
                 {
-                    LOGGER.debug("Retired Lost Ages Resource Vents KubeJS file already absent: {}", retiredPath);
+                    LOGGER.debug("Retired Lost Ages managed KubeJS file already absent: {}", retiredPath);
                     continue;
                 }
 
                 if (!Files.isRegularFile(retiredPath))
                 {
-                    throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS path exists but is not a regular file: " + retiredPath);
+                    throw new RuntimeException("Retired Lost Ages managed KubeJS path exists but is not a regular file: " + retiredPath);
                 }
 
                 Files.delete(retiredPath);
-                LOGGER.info("Removed retired Lost Ages Resource Vents KubeJS file: {}", retiredPath);
+                LOGGER.info("Removed retired Lost Ages managed KubeJS file: {}", retiredPath);
             }
             catch (IOException e)
             {
-                throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS file could not be removed: " + retiredPath, e);
+                throw new RuntimeException("Retired Lost Ages managed KubeJS file could not be removed: " + retiredPath, e);
             }
         }
     }

@@ -1,0 +1,25 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:false"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "create:creative_motor"
+          }
+        ],
+        "result": {
+          "item": "appliedcreate:creative_stress_cell",
+          "count": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-forgefrontierlostages/managed/kubejs/client_scripts/Lost Ages/AE2/Hide_AE2_Facades.js|kubejs/client_scripts/Lost Ages/AE2/Hide_AE2_Facades.js
 forgefrontierlostages/managed/config/ftbquests/quests/chapters/create_diesel_generators.snbt|config/ftbquests/quests/chapters/create_diesel_generators.snbt
 forgefrontierlostages/managed/config/ftbquests/quests/chapters/create_utilities.snbt|config/ftbquests/quests/chapters/create_utilities.snbt
 forgefrontierlostages/managed/config/ftbquests/quests/chapters/mob_grinding_utils.snbt|config/ftbquests/quests/chapters/mob_grinding_utils.snbt
@@ -8,5 +7,4 @@ forgefrontierlostages/managed/kubejs/assets/ftb/textures/growth_accelerator.png|
 forgefrontierlostages/managed/kubejs/assets/ftb/textures/mob_grinding_utils_bg.png|kubejs/assets/ftb/textures/mob_grinding_utils_bg.png
 forgefrontierlostages/managed/kubejs/assets/ftb/textures/mysterious_cube.png|kubejs/assets/ftb/textures/mysterious_cube.png
 forgefrontierlostages/managed/kubejs/server_scripts/Lost Ages/Botany Pots/Botany_Pots_Changes.js|kubejs/server_scripts/Lost Ages/Botany Pots/Botany_Pots_Changes.js
-forgefrontierlostages/managed/kubejs/server_scripts/Lost Ages/AE2/AE2_Changes.js|kubejs/server_scripts/Lost Ages/AE2/AE2_Changes.js
 forgefrontierlostages/managed/kubejs/server_scripts/Lost Ages/Easy Villagers/Easy_Villagers_Changes.js|kubejs/server_scripts/Lost Ages/Easy Villagers/Easy_Villagers_Changes.js

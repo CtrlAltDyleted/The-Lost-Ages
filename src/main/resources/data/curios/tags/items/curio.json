@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [],
+  "remove": [
+    "ae2:wireless_terminal",
+    "advanced_ae:wireless_quantum_crafter_terminal",
+    "expatternprovider:wireless_ex_ct"
+  ]
+}
