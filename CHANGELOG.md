@@ -6,14 +6,15 @@
 - Added non-placeable incomplete Active Certusite and Active Skystonium Vent items for sequenced assembly
 
 ### Changed
-- Updated compatibility for Create: Forge Frontier 3.1.4
+- Changed compatibility to Create: Forge Frontier 3.1.4
 - Changed Skystonium processing to use Create: Dragons Plus black dye instead of Create: Enchantment Industry ink
 - Changed Active Certusite Vent duplication to use an AE2 Quartz Block
 - Changed Active Skystonium Vent duplication to use an AE2 Smooth Sky Stone Block
-- Moved Resource Vents integration from managed KubeJS scripts to native mod resources
-- Moved AE2 creative compacting recipes and Curios terminal integration from managed KubeJS to native mod resources
-- Moved Applied Create Creative Stress Cell recipe suppression to native datapack resources
-- Moved AE2 facade hiding from KubeJS to the AE2 client config patcher
+- Changed Resource Vents integration to use native mod resources instead of managed KubeJS scripts
+- Changed AE2 creative compacting recipes to use native mod resources instead of managed KubeJS
+- Changed Curios terminal integration to use native item tag resources instead of managed KubeJS
+- Changed Applied Create Creative Stress Cell recipe suppression to use native datapack resources
+- Changed AE2 facade hiding to use the AE2 client configuration instead of KubeJS
 
 ### Removed
 - Removed the obsolete Lost Ages AE2 Charger recipe override now that Forge Frontier provides the Charger recipe
