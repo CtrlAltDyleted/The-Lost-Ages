@@ -25,4 +25,7 @@ dev-libs/
 
 # Local release notes
 CURSEFORGE_PROJECT.md
+
+# Local project directories
 /Lost Ages Mods
+/tools

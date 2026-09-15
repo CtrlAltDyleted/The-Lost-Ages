@@ -3,18 +3,6 @@
 
 ServerEvents.recipes(function(event) {
 
-    event.remove({ output: 'ae2:charger' });
-
-    event.shaped('ae2:charger', [
-        'XYX',
-        'Z  ',
-        'XYX'
-    ], {
-        X: 'create_new_age:overcharged_iron',
-        Y: 'minecraft:copper_ingot',
-        Z: 'ae2:printed_silicon'
-    }).id('forgefrontierlostages:ae2/charger');
-
     function addSuperheatedCompactingRecipe(output, recipeId, cellInput) {
         event.custom({
             type: 'create:compacting',
@@ -79,16 +67,12 @@ ServerEvents.tags('item', function(event) {
 
     event.add('curios:terminals', [
         'ae2:wireless_terminal',
-        'ae2:wireless_crafting_terminal',
-        'ae2wtlib:wireless_pattern_access_terminal',
-        'ae2wtlib:wireless_pattern_encoding_terminal',
-        'ae2wtlib:wireless_universal_terminal',
         'advanced_ae:wireless_quantum_crafter_terminal',
-        'expatternprovider:wireless_ex_pat',
         'expatternprovider:wireless_ex_ct'
     ]);
 
     const terminalOnlyItems = [
+        'ae2:wireless_terminal',
         'advanced_ae:wireless_quantum_crafter_terminal',
         'expatternprovider:wireless_ex_ct'
     ];

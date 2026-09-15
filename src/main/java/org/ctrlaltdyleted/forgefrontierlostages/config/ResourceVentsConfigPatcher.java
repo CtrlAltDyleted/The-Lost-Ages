@@ -13,7 +13,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import org.slf4j.Logger;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,7 +24,6 @@ public final class ResourceVentsConfigPatcher
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private static final String CONFIG_FILENAME = "create_resource_vents.json";
-    private static final String DEFAULT_TEMPLATE_RESOURCE = "forgefrontierlostages/defaults/create_resource_vents-1.3.json";
     private static final String VENTS_KEY = "vents";
     private static final String NAME_KEY = "name";
 
@@ -39,27 +37,19 @@ public final class ResourceVentsConfigPatcher
     public static void patch()
     {
         final Path configPath = FMLPaths.CONFIGDIR.get().resolve(CONFIG_FILENAME);
-        final JsonElement originalElement;
-        final JsonObject desiredRoot;
-        final boolean created;
-
-        if (Files.exists(configPath))
+        if (!Files.exists(configPath))
         {
-            originalElement = parseExistingConfig(configPath);
-            desiredRoot = buildPatchedRoot(configPath, originalElement.getAsJsonObject());
-            created = false;
-        }
-        else
-        {
-            originalElement = null;
-            desiredRoot = buildFromBundledTemplate(configPath);
-            created = true;
+            LOGGER.warn("{}: Forge Frontier Resource Vents config is missing; skipping Lost Ages Resource Vents patch. Forge Frontier owns the base config and Lost Ages only patches existing vent entries.",
+                    configPath.toAbsolutePath().normalize());
+            return;
         }
 
-        writeIfChanged(configPath, originalElement, desiredRoot, created);
+        final JsonObject existingRoot = parseExistingConfig(configPath);
+        final JsonObject desiredRoot = buildPatchedRoot(configPath, existingRoot);
+        writeIfChanged(configPath, existingRoot, desiredRoot);
     }
 
-    private static JsonElement parseExistingConfig(Path configPath)
+    private static JsonObject parseExistingConfig(Path configPath)
     {
         final String text;
         try
@@ -89,44 +79,7 @@ public final class ResourceVentsConfigPatcher
             throw invalidState(configPath, "Existing configuration 'vents' property must be a JSON array", null);
         }
 
-        return parsed;
-    }
-
-    private static JsonObject buildFromBundledTemplate(Path configPath)
-    {
-        final String templateText;
-        try (InputStream stream = ResourceVentsConfigPatcher.class.getClassLoader().getResourceAsStream(DEFAULT_TEMPLATE_RESOURCE))
-        {
-            if (stream == null)
-            {
-                throw invalidState(configPath, "Bundled default template not found: " + DEFAULT_TEMPLATE_RESOURCE, null);
-            }
-            templateText = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
-        }
-        catch (IOException e)
-        {
-            throw invalidState(configPath, "Failed to read bundled default template: " + DEFAULT_TEMPLATE_RESOURCE, e);
-        }
-
-        final JsonElement parsed = parseJson(configPath, templateText, "Bundled default template is not valid JSON");
-        if (!parsed.isJsonObject())
-        {
-            throw invalidState(configPath, "Bundled default template root must be a JSON object", null);
-        }
-
-        final JsonObject root = parsed.getAsJsonObject();
-        if (!root.has(VENTS_KEY))
-        {
-            throw invalidState(configPath, "Bundled default template is missing required 'vents' property", null);
-        }
-
-        final JsonElement vents = root.get(VENTS_KEY);
-        if (!vents.isJsonArray())
-        {
-            throw invalidState(configPath, "Bundled default template 'vents' property must be a JSON array", null);
-        }
-
-        return appendLostAgesVents(root.deepCopy());
+        return root;
     }
 
     private static JsonObject buildPatchedRoot(Path configPath, JsonObject existingRoot)
@@ -206,7 +159,7 @@ public final class ResourceVentsConfigPatcher
         vent.add("generatedBlocks", generatedBlocks);
 
         final JsonArray reactantFluids = new JsonArray();
-        reactantFluids.add("create_enchantment_industry:ink");
+        reactantFluids.add("create_dragons_plus:black_dye");
         vent.add("reactantFluids", reactantFluids);
 
         vent.addProperty("maxGenerationDistance", 1);
@@ -225,9 +178,9 @@ public final class ResourceVentsConfigPatcher
         }
     }
 
-    private static void writeIfChanged(Path configPath, JsonElement existing, JsonObject desired, boolean created)
+    private static void writeIfChanged(Path configPath, JsonObject existing, JsonObject desired)
     {
-        if (existing != null && existing.equals(desired))
+        if (existing.equals(desired))
         {
             LOGGER.info("Create Resource Vents config already correct: {}", configPath);
             return;
@@ -257,14 +210,7 @@ public final class ResourceVentsConfigPatcher
             throw invalidState(configPath, "Failed to write configuration file", e);
         }
 
-        if (created)
-        {
-            LOGGER.info("Create Resource Vents config created: {}", configPath);
-        }
-        else
-        {
-            LOGGER.info("Create Resource Vents config patched: {}", configPath);
-        }
+        LOGGER.info("Create Resource Vents config patched: {}", configPath);
     }
 
     private static IllegalStateException invalidState(Path configPath, String message, Exception cause)

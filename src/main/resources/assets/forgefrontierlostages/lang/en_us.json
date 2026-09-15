@@ -1,4 +1,6 @@
 {
   "block.forgefrontierlostages.certusite": "Certusite",
-  "block.forgefrontierlostages.skystonium": "Skystonium"
+  "block.forgefrontierlostages.skystonium": "Skystonium",
+  "block.forgefrontierlostages.incomplete_active_certusite_vent": "Incomplete Active Certusite Vent",
+  "block.forgefrontierlostages.incomplete_active_skystonium_vent": "Incomplete Active Skystonium Vent"
 }
