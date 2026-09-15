@@ -64,9 +64,9 @@ public class ForgeFrontierLostAges
     public static final RegistryObject<Item> INCOMPLETE_ACTIVE_CERTUSITE_VENT_ITEM = ITEMS.register("incomplete_active_certusite_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_CERTUSITE_VENT.get(), new Item.Properties()));
     public static final RegistryObject<Item> INCOMPLETE_ACTIVE_SKYSTONIUM_VENT_ITEM = ITEMS.register("incomplete_active_skystonium_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_SKYSTONIUM_VENT.get(), new Item.Properties()));
 
-    public ForgeFrontierLostAges()
+    public ForgeFrontierLostAges(FMLJavaModLoadingContext context)
     {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = context.getModEventBus();
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
 
