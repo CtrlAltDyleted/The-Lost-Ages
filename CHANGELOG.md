@@ -3,19 +3,22 @@
 ### Added
 - Added Active Certusite and Active Skystonium Resource Vent duplication through Create sequenced assembly
 - Added Certusite to Certus Quartz Crystal processing in the AdvancedAE Reaction Chamber
-- Added native non-placeable incomplete vent items for sequenced assembly
+- Added non-placeable incomplete Active Certusite and Active Skystonium Vent items for sequenced assembly
 
 ### Changed
 - Updated compatibility for Create: Forge Frontier 3.1.4
-- Updated Skystonium processing to use Create: Dragons Plus black dye
-- Updated vent duplication to use AE2 Quartz and Smooth Sky Stone blocks
-- Moved Resource Vents, AE2 creative compacting, and Curios integration from managed KubeJS to native resources
+- Changed Skystonium processing to use Create: Dragons Plus black dye instead of Create: Enchantment Industry ink
+- Changed Active Certusite Vent duplication to use an AE2 Quartz Block
+- Changed Active Skystonium Vent duplication to use an AE2 Smooth Sky Stone Block
+- Moved Resource Vents integration from managed KubeJS scripts to native mod resources
+- Moved AE2 creative compacting recipes and Curios terminal integration from managed KubeJS to native mod resources
+- Moved Applied Create Creative Stress Cell recipe suppression to native datapack resources
+- Moved AE2 facade hiding from KubeJS to the AE2 client config patcher
 
-### Fixed
-- Removed the obsolete AE2 Charger override now owned by Forge Frontier
-- Preserved removal of Applied Create Creative Stress Cell conversion shortcuts through native datapack resources
-- Retired obsolete Resource Vents and AE2 managed KubeJS files during upgrades
-- Preserved AE2 facade hiding through the AE2 client config patcher
+### Removed
+- Removed the obsolete Lost Ages AE2 Charger recipe override now that Forge Frontier provides the Charger recipe
+- Removed obsolete Lost Ages Resource Vents KubeJS scripts
+- Removed obsolete Lost Ages AE2 KubeJS scripts
 
 ## 1.3
 
