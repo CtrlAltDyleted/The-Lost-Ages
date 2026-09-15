@@ -1,0 +1,64 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_resource_vents:active_certusite_vent"
+  },
+  "transitionalItem": {
+    "item": "forgefrontierlostages:incomplete_active_certusite_vent"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" },
+        { "item": "ae2:quartz_block" }
+      ],
+      "results": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" },
+        { "item": "forge_frontier:compressed_mechanism_block_1x" }
+      ],
+      "results": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" },
+        { "item": "createqol:shadow_radiance_block" }
+      ],
+      "results": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" },
+        { "fluid": "create_ethium:echo_compound_fluid", "amount": 1000 }
+      ],
+      "results": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ],
+      "results": [
+        { "item": "forgefrontierlostages:incomplete_active_certusite_vent" }
+      ]
+    }
+  ],
+  "results": [
+    { "item": "create_resource_vents:active_certusite_vent", "count": 2 }
+  ],
+  "loops": 3
+}

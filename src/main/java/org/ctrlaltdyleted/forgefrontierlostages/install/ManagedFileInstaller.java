@@ -19,6 +19,10 @@ public final class ManagedFileInstaller
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String INDEX_RESOURCE = "forgefrontierlostages/managed-files.txt";
     private static final String LEGACY_LOST_AGES_FOLDER = "lost_ages";
+    private static final List<String> REQUIRED_RETIRED_MANAGED_PATHS = List.of(
+            managedPath("kubejs", "startup_scripts", "Lost Ages", "Resource_Vents.js"),
+            managedPath("kubejs", "server_scripts", "Lost Ages", "Resource Vents", "Sequenced_Assembly_Recipes.js")
+    );
     private static final List<String> OBSOLETE_MANAGED_PATHS = List.of(
             "kubejs/server_scripts/forgefrontierlostages_ae2_changes.js",
             "kubejs/server_scripts/forgefrontierlostages_botany_pot_changes.js",
@@ -43,6 +47,7 @@ public final class ManagedFileInstaller
     public static void install()
     {
         final Path gameDir = FMLPaths.GAMEDIR.get().toAbsolutePath().normalize();
+        removeRequiredRetiredManagedFiles(gameDir);
         removeObsoleteManagedFiles(gameDir);
         final List<String> lines = readIndex();
 
@@ -83,6 +88,39 @@ public final class ManagedFileInstaller
         }
 
         removeObsoleteLostAgesDirectories(gameDir);
+    }
+
+    private static void removeRequiredRetiredManagedFiles(Path gameDir)
+    {
+        for (String relativePathText : REQUIRED_RETIRED_MANAGED_PATHS)
+        {
+            final Path retiredPath = gameDir.resolve(Paths.get(relativePathText).normalize()).normalize();
+            if (!retiredPath.startsWith(gameDir))
+            {
+                throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS path escapes the game directory: " + retiredPath);
+            }
+
+            try
+            {
+                if (!Files.exists(retiredPath))
+                {
+                    LOGGER.debug("Retired Lost Ages Resource Vents KubeJS file already absent: {}", retiredPath);
+                    continue;
+                }
+
+                if (!Files.isRegularFile(retiredPath))
+                {
+                    throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS path exists but is not a regular file: " + retiredPath);
+                }
+
+                Files.delete(retiredPath);
+                LOGGER.info("Removed retired Lost Ages Resource Vents KubeJS file: {}", retiredPath);
+            }
+            catch (IOException e)
+            {
+                throw new RuntimeException("Retired Lost Ages Resource Vents KubeJS file could not be removed: " + retiredPath, e);
+            }
+        }
     }
 
     private static void removeObsoleteManagedFiles(Path gameDir)

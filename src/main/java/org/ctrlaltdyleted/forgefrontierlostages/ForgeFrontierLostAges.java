@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -18,6 +19,7 @@ import org.ctrlaltdyleted.forgefrontierlostages.config.LogBegoneConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.config.ResourceVentsConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.install.KubeJsScriptManager;
 import org.ctrlaltdyleted.forgefrontierlostages.install.ManagedFileInstaller;
+import org.ctrlaltdyleted.forgefrontierlostages.item.NonPlaceableBlockItem;
 import org.ctrlaltdyleted.forgefrontierlostages.quests.AppliedEnergisticsQuestPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.quests.QuestMetadataPatcher;
 import org.slf4j.Logger;
@@ -42,9 +44,25 @@ public class ForgeFrontierLostAges
                     .strength(3.0F, 6.0F)
                     .sound(SoundType.STONE)
     ));
+    public static final RegistryObject<Block> INCOMPLETE_ACTIVE_CERTUSITE_VENT = BLOCKS.register("incomplete_active_certusite_vent", () -> new Block(
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .requiresCorrectToolForDrops()
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.STONE)
+    ));
+    public static final RegistryObject<Block> INCOMPLETE_ACTIVE_SKYSTONIUM_VENT = BLOCKS.register("incomplete_active_skystonium_vent", () -> new Block(
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .requiresCorrectToolForDrops()
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.STONE)
+    ));
 
     public static final RegistryObject<Item> CERTUSITE_ITEM = ITEMS.register("certusite", () -> new BlockItem(CERTUSITE.get(), new Item.Properties()));
     public static final RegistryObject<Item> SKYSTONIUM_ITEM = ITEMS.register("skystonium", () -> new BlockItem(SKYSTONIUM.get(), new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_ACTIVE_CERTUSITE_VENT_ITEM = ITEMS.register("incomplete_active_certusite_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_CERTUSITE_VENT.get(), new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_ACTIVE_SKYSTONIUM_VENT_ITEM = ITEMS.register("incomplete_active_skystonium_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_SKYSTONIUM_VENT.get(), new Item.Properties()));
 
     public ForgeFrontierLostAges()
     {
