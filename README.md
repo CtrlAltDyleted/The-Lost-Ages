@@ -57,40 +57,6 @@ Quest content originally created for The Lost Ages remains original work by Ctrl
 
 Some quest content authored by CtrlAltDyleted has also been incorporated into Create: Forge Frontier with permission and attribution.
 
-## Development
-
-Use the Gradle wrapper from the repository root.
-
-### Build
-
-```powershell
-.\gradlew.bat clean build
-```
-
-### Compile Java
-
-```powershell
-.\gradlew.bat compileJava
-```
-
-### Generate VS Code Run Configurations
-
-```powershell
-.\gradlew.bat genVSCodeRuns
-```
-
-### Run Development Client
-
-```powershell
-.\gradlew.bat runClient
-```
-
-### Run Development Server
-
-```powershell
-.\gradlew.bat runServer
-```
-
 ## Managed Files
 
 The Lost Ages installs and patches files used by Create: Forge Frontier.
