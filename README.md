@@ -1,5 +1,7 @@
 # The Lost Ages
 
+<img width="1024" height="1024" alt="thelostagesmod" src="https://github.com/user-attachments/assets/e0ca3a64-9b79-4300-bb77-75000356b40b" />
+
 The Lost Ages is an unofficial companion mod for Create: Forge Frontier.
 
 It adds original quests, recipes, integrations, progression changes, compatibility features, and additional content designed specifically for use with the modpack.
