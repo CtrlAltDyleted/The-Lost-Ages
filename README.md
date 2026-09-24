@@ -8,11 +8,11 @@ It adds original quests, recipes, integrations, progression changes, compatibili
 
 ## Project Status
 
-- Current version: 1.4
-- Latest published CurseForge release: 1.4
+- Current version: 0.2.0
+- Latest published CurseForge release: 0.2.0
 - Minecraft: 1.20.1
 - Forge: 47.4.20
-- Create: Forge Frontier baseline: 3.1.4
+- Create: Forge Frontier baseline: 3.1.5
 
 CurseForge:
 
@@ -24,7 +24,7 @@ The Lost Ages is intended for use with Create: Forge Frontier and is not designe
 
 Install the compatible version of Create: Forge Frontier, then install The Lost Ages and its required dependencies.
 
-For a clean Create: Forge Frontier instance, The Lost Ages 1.4 requires these additional mods:
+For a clean Create: Forge Frontier instance, The Lost Ages 0.2.0 requires these additional mods:
 
 - AppliedFlux — AppliedFlux-1.20-1.3.7-forge.jar
 - AE2 Network Analyser — AE2NetworkAnalyzer-1.20-1.0.6-forge.jar

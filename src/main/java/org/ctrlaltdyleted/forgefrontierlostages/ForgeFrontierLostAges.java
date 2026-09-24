@@ -14,6 +14,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ctrlaltdyleted.forgefrontierlostages.config.Ae2ClientConfigPatcher;
+import org.ctrlaltdyleted.forgefrontierlostages.config.ExtendedAeInfinityConfigPatcher;
+import org.ctrlaltdyleted.forgefrontierlostages.compat.curios.CuriosIntegration;
 import org.ctrlaltdyleted.forgefrontierlostages.config.JeiBlacklistManager;
 import org.ctrlaltdyleted.forgefrontierlostages.config.LogBegoneConfigPatcher;
 import org.ctrlaltdyleted.forgefrontierlostages.config.ResourceVentsConfigPatcher;
@@ -74,10 +76,13 @@ public class ForgeFrontierLostAges
         ResourceVentsConfigPatcher.patch();
         LogBegoneConfigPatcher.patch();
         KubeJsScriptManager.patchExternalCompactingRecipes();
+        KubeJsScriptManager.restoreInfinityCobblestoneRecipe();
+        ExtendedAeInfinityConfigPatcher.ensureLavaType();
         ManagedFileInstaller.install();
         QuestMetadataPatcher.patch();
         AppliedEnergisticsQuestPatcher.patch();
         Ae2ClientConfigPatcher.patch();
+        CuriosIntegration.initialize();
         LOGGER.info("Initializing The Lost Ages");
     }
 }

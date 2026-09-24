@@ -21,9 +21,45 @@ public final class KubeJsScriptManager
             Pattern.compile("['\"]easy_villagers:auto_trader['\"]");
     private static final String COMPACTING_RECIPES_RELATIVE_PATH =
             "kubejs/server_scripts/Mod Adjustments/Easy Villager and Piglins/Compacting_Recipes.js";
+    private static final String AE2_REMOVALS_RELATIVE_PATH =
+            "kubejs/server_scripts/Mod Adjustments/AE2/Recipe_Removals.js";
+    private static final Pattern COBBLESTONE_REMOVAL_LINE = Pattern.compile(
+            "(?m)^[\\t ]*event\\.remove\\(\\{[\\t ]*id:[\\t ]*['\"]expatternprovider:cobblestone_cell['\"][\\t ]*\\}\\)[\\t ]*;?[\\t ]*\\R?");
 
     private KubeJsScriptManager()
     {
+    }
+
+    /** Leave ExtendedAE's original shaped recipe in place by removing one pack removal instruction. */
+    public static void restoreInfinityCobblestoneRecipe()
+    {
+        final Path gameDirectory = FMLPaths.GAMEDIR.get().toAbsolutePath().normalize();
+        final Path script = gameDirectory.resolve(AE2_REMOVALS_RELATIVE_PATH).normalize();
+        if (!script.startsWith(gameDirectory) || !Files.isRegularFile(script))
+        {
+            LOGGER.info("Infinity Cobblestone Cell removal script unavailable: {}", script);
+            return;
+        }
+        try
+        {
+            final String original = Files.readString(script, StandardCharsets.UTF_8);
+            final Matcher matcher = COBBLESTONE_REMOVAL_LINE.matcher(original);
+            if (!matcher.find())
+            {
+                if (original.contains("expatternprovider:cobblestone_cell"))
+                {
+                    LOGGER.warn("Cobblestone Cell removal exists in an unrecognized form: {}", script);
+                }
+                return;
+            }
+            Files.writeString(script, matcher.replaceFirst(""), StandardCharsets.UTF_8,
+                    StandardOpenOption.TRUNCATE_EXISTING);
+            LOGGER.info("Restored ExtendedAE's original Infinity Cobblestone Cell recipe by removing its pack removal: {}", script);
+        }
+        catch (IOException e)
+        {
+            LOGGER.error("Could not restore Infinity Cobblestone Cell recipe in {}", script, e);
+        }
     }
 
     public static void patchExternalCompactingRecipes()

@@ -42,7 +42,8 @@ public final class AppliedEnergisticsQuestPatcher
             "444043822C11DE7E",
             "398D0D8B52F362A8",
             "0D2E92335FE90783",
-            "4F1BEB3735E8FAF3"
+            "4F1BEB3735E8FAF3",
+            "2D29B28CE2CBC26D"
     );
 
     private AppliedEnergisticsQuestPatcher()

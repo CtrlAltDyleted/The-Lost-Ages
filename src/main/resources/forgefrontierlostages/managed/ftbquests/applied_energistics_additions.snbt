@@ -327,6 +327,46 @@
 			title: "Two New Vents!"
 			x: -8.0d
 			y: -4.0d
+		},
+{
+			dependencies: ["2DCD13936A0C02E2"]
+			description: [
+				"While this item is linked to the 256k storage component quest, I decided that would not be expensive enough. "
+				""
+				"Seeing that I have not made mega cells quests yet, this will have to do. "
+				""
+				"The Infinity Lava Cell will provide your AE2 Network with... Infinite Lava (crazy I know)."
+			]
+			id: "2D29B28CE2CBC26D"
+			rewards: [
+				{
+					id: "04131CD564ED30A1"
+					item: "megacells:cell_component_4m"
+					type: "item"
+				}
+				{
+					id: "5988102B777A9728"
+					type: "xp"
+					xp: 1000
+				}
+			]
+			subtitle: "Nether? I hardly even KNOW her!"
+			tasks: [{
+				id: "7F00A993645E63BE"
+				item: {
+					Count: 1
+					id: "expatternprovider:infinity_cell"
+					tag: {
+						record: {
+							"#c": "ae2:f"
+							id: "minecraft:lava"
+						}
+					}
+				}
+				type: "item"
+			}]
+			x: -3.5d
+			y: 5.5d
 		}
     ]
 }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "expatternprovider" },
+    { "type": "forge:mod_loaded", "modid": "megacells" }
+  ],
+  "pattern": [
+    "CLC",
+    "LXL",
+    "III"
+  ],
+  "key": {
+    "C": { "item": "ae2:quartz_glass" },
+    "L": { "item": "minecraft:lava_bucket" },
+    "X": { "item": "megacells:cell_component_16m" },
+    "I": { "tag": "forge:gems/diamond" }
+  },
+  "result": {
+    "item": "expatternprovider:infinity_cell",
+    "nbt": "{record:{\"#c\":\"ae2:f\",id:\"minecraft:lava\"}}"
+  },
+  "show_notification": true
+}

@@ -1,3 +1,10 @@
+## 0.2.0
+
+### Added
+- Added AE2 Import Export Card Curios Export Card integration for equipped fluid/fueling tanks.
+- Added the Infinity Lava Cell and matching quest to the AE2 quest chapter additions.
+- Updated the mod icon to a new custom icon made by me
+
 ## 1.4
 
 ### Added
