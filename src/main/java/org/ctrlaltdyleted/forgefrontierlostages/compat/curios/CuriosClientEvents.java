@@ -1,6 +1,7 @@
 package org.ctrlaltdyleted.forgefrontierlostages.compat.curios;
 
 import com.ultramega.ae2insertexportcard.container.UpgradeContainerMenu;
+import com.ultramega.ae2insertexportcard.container.CardPlayerSlot;
 import com.ultramega.ae2insertexportcard.screen.UpgradeScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -20,10 +21,10 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 
 import java.util.ArrayList;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-/** Shows Curios' equipped slots beside the Export Card while its filter menu stays open. */
 final class CuriosClientEvents {
     private static final ResourceLocation INVENTORY = new ResourceLocation("curios", "textures/gui/inventory.png");
     private static final ResourceLocation EMPTY_SLOT = new ResourceLocation("curios", "slot/empty_curio_slot");
@@ -36,6 +37,9 @@ final class CuriosClientEvents {
     private boolean open;
     private int firstColumn;
     private List<CuriosSelections.Selection> selected = new ArrayList<>();
+    private Field inventorySelectionsField;
+    private UpgradeScreen inventoryClickScreen;
+    private int inventoryClickButton = -1;
 
     private boolean active(Screen screen) {
         return screen instanceof UpgradeScreen upgrade && upgrade.getMenu().getType() == UpgradeContainerMenu.TYPE_EXPORT;
@@ -50,7 +54,6 @@ final class CuriosClientEvents {
         int y = Math.max(2, screen.getGuiTop());
         int rows = Math.max(1, Math.min(8, (screen.height - y - 8) / CELL));
         int needed = Math.max(1, (count + rows - 1) / rows);
-        // Leave the guide button's strip clear at the upper left of the card.
         int leftSpace = screen.getGuiLeft() - 20;
         int columns = Math.max(1, Math.min(needed, (leftSpace - 8) / CELL));
         int width = 8 + columns * CELL;
@@ -61,7 +64,6 @@ final class CuriosClientEvents {
 
     private void positionButton(UpgradeScreen screen) {
         if (button == null) return;
-        // AE2's guide button occupies the upper left edge; center this below it.
         button.setX(Math.max(2, screen.getGuiLeft() - 14));
         button.setY(Math.min(screen.height - 16, screen.getGuiTop() + 23));
     }
@@ -80,6 +82,8 @@ final class CuriosClientEvents {
         if (!active(event.getScreen())) return;
         UpgradeScreen screen = (UpgradeScreen) event.getScreen();
         current = screen;
+        inventoryClickScreen = null;
+        inventoryClickButton = -1;
         open = false;
         firstColumn = 0;
         ItemStack terminal = ((appeng.helpers.WirelessTerminalMenuHost) screen.getMenu().getHost()).getItemStack();
@@ -138,7 +142,6 @@ final class CuriosClientEvents {
                 Math.max(0, (slots.size() + panel.rows() - 1) / panel.rows() - panel.columns()));
         GuiGraphics graphics = event.getGuiGraphics();
         graphics.flush();
-        // These AE2/card textures pick up the same active resource pack as the Export Card inventory.
         renderBackground(graphics, panel);
         renderSlotGrid(graphics, panel);
         int hovered = -1;
@@ -178,7 +181,6 @@ final class CuriosClientEvents {
         int y = panel.y();
         int w = panel.width();
         int h = panel.height();
-        // Nine slices keep AE2's one-pixel border intact at any Curios panel size.
         graphics.blit(AE2_BACKGROUND, x, y, 0, 0, 2, 2, 256, 256);
         graphics.blit(AE2_BACKGROUND, x + 2, y, 4, 0, w - 4, 2, 256, 256);
         graphics.blit(AE2_BACKGROUND, x + w - 2, y, 254, 0, 2, 2, 256, 256);
@@ -191,8 +193,6 @@ final class CuriosClientEvents {
     }
 
     private void renderSlotGrid(GuiGraphics graphics, Layout panel) {
-        // The card's first inventory cell begins at (8,79): (7,80) omits its
-        // top edge and shifts the 16-pixel item area relative to the slot.
         graphics.blit(CARD_PANEL, panel.cellX(0) - 1, panel.cellY(0) - 1,
                 7, 78, panel.columns() * CELL, 1, 256, 256);
         for (int row = 0; row < panel.rows(); row++) {
@@ -240,10 +240,48 @@ final class CuriosClientEvents {
     public void click(ScreenEvent.MouseButtonPressed.Pre event) {
         if (!CuriosIntegration.enabled()) return;
         try {
+            if (selectInventorySlot(event)) return;
             clickPanel(event);
-        } catch (LinkageError | RuntimeException error) {
+        } catch (LinkageError | ReflectiveOperationException | RuntimeException error) {
             CuriosIntegration.disable(error);
             open = false;
+        }
+    }
+
+    private boolean selectInventorySlot(ScreenEvent.MouseButtonPressed.Pre event)
+            throws ReflectiveOperationException {
+        if (!active(event.getScreen()) || (event.getButton() != 0 && event.getButton() != 1)) return false;
+        UpgradeScreen screen = (UpgradeScreen) event.getScreen();
+        double x = event.getMouseX() - screen.getGuiLeft();
+        double y = event.getMouseY() - screen.getGuiTop();
+        for (net.minecraft.world.inventory.Slot slot : screen.getMenu().slots) {
+            if (!(slot instanceof CardPlayerSlot) || !slot.isActive()
+                    || x < slot.x - 1 || x >= slot.x + 17
+                    || y < slot.y - 1 || y >= slot.y + 17) continue;
+            if (inventorySelectionsField == null) {
+                inventorySelectionsField = UpgradeScreen.class.getDeclaredField("selectedInventorySlots");
+                inventorySelectionsField.setAccessible(true);
+            }
+            int[] selections = (int[]) inventorySelectionsField.get(screen);
+            int index = slot.index - 21; // Export Card's inventory slot offset.
+            if (index < 0 || index >= selections.length) return false;
+            selections[index] = event.getButton() == 1 ? 0
+                    : selections[index] >= 18 ? 0 : selections[index] + 1;
+            screen.sendUpdate();
+            inventoryClickScreen = screen;
+            inventoryClickButton = event.getButton();
+            event.setCanceled(true);
+            return true;
+        }
+        return false;
+    }
+
+    @SubscribeEvent
+    public void release(ScreenEvent.MouseButtonReleased.Pre event) {
+        if (event.getScreen() == inventoryClickScreen && event.getButton() == inventoryClickButton) {
+            event.setCanceled(true);
+            inventoryClickScreen = null;
+            inventoryClickButton = -1;
         }
     }
 

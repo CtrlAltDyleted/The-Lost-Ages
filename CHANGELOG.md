@@ -1,3 +1,13 @@
+## 0.2.1
+
+### Added
+- Added AppliedFlux Forge Energy to JEI for Export Card filter selection.
+- Added Forge Energy export to compatible items in the player's inventory and supported Curios slots, including AE2 powered items.
+
+### Fixed
+- Fixed Export Card transfers when a wireless terminal is equipped in the Curios terminal slot.
+- Fixed inventory slot selection in the Export Card screen so a single click changes the fluid/item exported without picking up the item in the inventory slot.
+
 ## 0.2.0
 
 ### Added
