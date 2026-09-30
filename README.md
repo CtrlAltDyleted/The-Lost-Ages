@@ -8,8 +8,8 @@ It adds original quests, recipes, integrations, progression changes, compatibili
 
 ## Project Status
 
-- Current version: 0.3.0
-- Latest published CurseForge release: 0.3.0
+- Current version: 0.3.1
+- Latest published CurseForge release: 0.3.1
 - Minecraft: 1.20.1
 - Forge: 47.4.20
 - Create: Forge Frontier baseline: 3.1.5
@@ -24,7 +24,7 @@ The Lost Ages is intended for use with Create: Forge Frontier and is not designe
 
 Install a compatible version of Create: Forge Frontier, then install The Lost Ages and its required dependencies.
 
-For a clean Create: Forge Frontier 3.1.1 + instance, The Lost Ages 0.3.0 requires these additional mods:
+For a clean Create: Forge Frontier 3.1.1 + instance, The Lost Ages 0.3.1 requires these additional mods:
 
 - AppliedFlux — AppliedFlux-1.20-1.3.7-forge.jar
 - AE2 Network Analyser — AE2NetworkAnalyzer-1.20-1.0.6-forge.jar
@@ -38,7 +38,7 @@ For a clean Create: Forge Frontier 3.1.1 + instance, The Lost Ages 0.3.0 require
 
 Core requirements such as Forge, Minecraft, KubeJS, FTB Quests, Create, Create Resource Vents, Applied Energistics 2, Ad Astra, Pretty Pipes, Pretty Pipes: Fluids, Create: Dreams & Desires, Create: New Age, and Create: Quality of Life are supplied by the Forge Frontier baseline. Install the same additional mods on the dedicated server and each client.
 
-The CurseForge release includes a Dependency Downloader under Additional Files to assist with installing the mod's dependencies that are not already included with Create: Forge Frontier. The latest version is also hosted here on GitHub.
+The CurseForge release includes a Dependency Downloader under Additional Files to assist with installing the mod's dependencies that are not already included with Create: Forge Frontier. The [0.3.1 Dependency Download Wizard](Dependency%20Download%20Wizard/0.3.1-Dependency-Download-Wizard/Download-Dependencies.html) is also hosted here on GitHub.
 
 ## Content
 

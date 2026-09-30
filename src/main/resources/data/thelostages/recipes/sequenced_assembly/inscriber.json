@@ -1,0 +1,95 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:industrial_iron_block"
+  },
+  "transitionalItem": {
+    "item": "thelostages:incomplete_inscriber"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        },
+        {
+          "item": "ae2:calculation_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        },
+        {
+          "item": "ae2:logic_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        },
+        {
+          "item": "ae2:engineering_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        },
+        {
+          "item": "ae2:charged_certus_quartz_crystal"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_inscriber"
+        }
+      ]
+    }
+  ],
+  "loops": 8,
+  "results": [
+    {
+      "item": "ae2:inscriber",
+      "count": 1
+    }
+  ]
+}

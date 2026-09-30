@@ -1,0 +1,13 @@
+{
+  "type": "ae2:inscriber",
+  "ingredients": {
+    "middle": {
+      "tag": "forge:ingots/brass"
+    }
+  },
+  "mode": "inscribe",
+  "result": {
+    "item": "appliedcreate:advanced_stress_circuit_board",
+    "count": 1
+  }
+}

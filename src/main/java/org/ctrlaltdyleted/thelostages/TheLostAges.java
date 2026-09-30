@@ -72,6 +72,7 @@ public class TheLostAges
     public static final RegistryObject<Item> INCOMPLETE_IMPROVED_UPGRADE = ITEMS.register("incomplete_improved_upgrade", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> INCOMPLETE_ADVANCED_UPGRADE = ITEMS.register("incomplete_advanced_upgrade", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> INCOMPLETE_ULTIMATE_UPGRADE = ITEMS.register("incomplete_ultimate_upgrade", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_INSCRIBER = ITEMS.register("incomplete_inscriber", () -> new Item(new Item.Properties()));
 
     public TheLostAges(FMLJavaModLoadingContext context)
     {

@@ -1,3 +1,8 @@
+## 0.3.1
+
+### Fixed
+- Restored AE2 Inscriber and its recipes, fixing inaccessible Applied Flux processor production.
+
 ## 0.3.0
 
 ### Added
