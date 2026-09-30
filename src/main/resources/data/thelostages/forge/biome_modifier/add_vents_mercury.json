@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "ad_astra:mercury_deltas"
+  ],
+  "features": [
+    "thelostages:placed_certusite_vent",
+    "thelostages:placed_skystonium_vent"
+  ],
+  "step": "underground_decoration"
+}

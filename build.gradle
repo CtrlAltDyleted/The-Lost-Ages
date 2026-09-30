@@ -108,7 +108,7 @@ tasks.named('jar', Jar).configure {
 
     from(rootProject.file('LICENSE.txt')) {
         into('META-INF')
-        rename { 'LICENSE-forgefrontierlostages.txt' }
+        rename { 'LICENSE-thelostages.txt' }
     }
 
     from(rootProject.file('COPYRIGHT.md')) {
@@ -139,7 +139,7 @@ tasks.withType(JavaCompile).configureEach {
 tasks.register('verifyEnergyTransfer', JavaExec) {
     dependsOn tasks.named('testClasses')
     classpath = files(sourceSets.test.output, sourceSets.main.output)
-    mainClass = 'org.ctrlaltdyleted.forgefrontierlostages.compat.curios.EnergyTransferRegression'
+    mainClass = 'org.ctrlaltdyleted.thelostages.compat.curios.EnergyTransferRegression'
 }
 
 tasks.named('test', Test) {

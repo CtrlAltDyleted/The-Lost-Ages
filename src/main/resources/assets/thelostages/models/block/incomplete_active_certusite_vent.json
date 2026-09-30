@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thelostages:block/incomplete_active_certusite_vent"
+  }
+}

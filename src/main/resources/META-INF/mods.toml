@@ -8,7 +8,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="The Lost Ages"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/the-lost-ages"
-logoFile="forgefrontierlostages.png"
+logoFile="thelostages.png"
 authors="CtrlAltDyleted"
 displayTest="MATCH_VERSION"
 

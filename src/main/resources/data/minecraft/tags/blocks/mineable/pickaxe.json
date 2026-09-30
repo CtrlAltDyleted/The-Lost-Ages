@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "forgefrontierlostages:certusite",
-    "forgefrontierlostages:skystonium",
+    "thelostages:certusite",
+    "thelostages:skystonium",
     "create_resource_vents:active_certusite_vent",
     "create_resource_vents:active_skystonium_vent"
   ]

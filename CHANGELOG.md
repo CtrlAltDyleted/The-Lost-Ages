@@ -6,6 +6,10 @@
 - Added a Sequenced Assembly Recipe for the Universal Pipe using Blaze Brass Casing and the three pipes.
 - Added Pretty Pipes based Sequenced Assembly Recipes for the Pipez upgrades.
 
+### Changed
+- Renamed the mod ID, Java package, resource namespaces, and JAR to `thelostages`.
+- Preserved loading of blocks and items saved by earlier versions under the previous mod ID.
+
 ## 0.2.1
 
 ### Added
