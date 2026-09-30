@@ -9,4 +9,6 @@ thelostages/managed/kubejs/assets/ftb/textures/mysterious_cube.png|kubejs/assets
 thelostages/managed/kubejs/server_scripts/Lost Ages/Botany Pots/Botany_Pots_Changes.js|kubejs/server_scripts/Lost Ages/Botany Pots/Botany_Pots_Changes.js
 thelostages/managed/kubejs/server_scripts/Lost Ages/Easy Villagers/Easy_Villagers_Changes.js|kubejs/server_scripts/Lost Ages/Easy Villagers/Easy_Villagers_Changes.js
 thelostages/managed/kubejs/server_scripts/Lost Ages/Pipez/Pipez_Recipes.js|kubejs/server_scripts/Lost Ages/Pipez/Pipez_Recipes.js
+thelostages/managed/kubejs/server_scripts/Lost Ages/Mob Grinding Utils/Mob_Grinding_Utils_Recipes.js|kubejs/server_scripts/Lost Ages/Mob Grinding Utils/Mob_Grinding_Utils_Recipes.js
 thelostages/managed/kubejs/client_scripts/Lost Ages/Pipez/Pipez_Tooltips.js|kubejs/client_scripts/Lost Ages/Pipez/Pipez_Tooltips.js
+thelostages/managed/kubejs/client_scripts/Lost Ages/Mob Grinding Utils/Mob_Grinding_Utils_JEI.js|kubejs/client_scripts/Lost Ages/Mob Grinding Utils/Mob_Grinding_Utils_JEI.js

@@ -3,12 +3,15 @@
 ### Added
 - Restored Pipez and added Pipez Lag Fix as required dependencies.
 - Added Create Item Application recipes for Pipez item, fluid, and energy pipes.
-- Added a Sequenced Assembly Recipe for the Universal Pipe using Blaze Brass Casing and the three pipes.
+- Added a Sequenced Assembly recipe for the Universal Pipe using Blaze Brass Casing and the item, fluid, and energy pipes.
 - Added Pretty Pipes based Sequenced Assembly Recipes for the Pipez upgrades.
+- Added Mob Grinding Utils recipes that use steel and Create components, including superheated mixing for Dreadful and Delightful Dirt.
+- Added optional Create Style Pipez and Mob Grinding Utils: Vanillafied resource pack links to the dependency downloader.
 
 ### Changed
 - Renamed the mod ID, Java package, resource namespaces, and JAR to `thelostages`.
 - Preserved loading of blocks and items saved by earlier versions under the previous mod ID.
+- Updated the Mob Grinding Utils quests.
 
 ## 0.2.1
 

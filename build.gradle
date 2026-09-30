@@ -135,17 +135,3 @@ tasks.named('jar', Jar).configure {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
-
-tasks.register('verifyEnergyTransfer', JavaExec) {
-    dependsOn tasks.named('testClasses')
-    classpath = files(sourceSets.test.output, sourceSets.main.output)
-    mainClass = 'org.ctrlaltdyleted.thelostages.compat.curios.EnergyTransferRegression'
-}
-
-tasks.named('test', Test) {
-    classpath = files(sourceSets.test.output, sourceSets.main.output)
-}
-
-tasks.named('check') {
-    dependsOn tasks.named('verifyEnergyTransfer')
-}

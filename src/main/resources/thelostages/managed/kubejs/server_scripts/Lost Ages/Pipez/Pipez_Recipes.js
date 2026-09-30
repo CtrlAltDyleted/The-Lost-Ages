@@ -56,3 +56,9 @@ ServerEvents.recipes(event => {
         'createqol:shadow_radiance_casing'
     ])
 })
+
+ServerEvents.recipes(event => {
+    event.remove({ id: 'pipez:copy_upgrade_infinity' })
+    const hiddenItems = ['gas_pipe', 'infinity_upgrade']
+    hiddenItems.forEach(name => event.remove({ output: 'pipez:' + name }))
+})

@@ -445,7 +445,7 @@
 					id: "38890E20A2EB31D9"
 					item: {
 						Count: 1
-						id: "create:chromatic_compound"
+						id: "create_dd:chromatic_compound"
 						tag: { }
 					}
 					type: "item"
@@ -726,11 +726,11 @@
 			id: "7CBA2E1634897931"
 			rewards: [
 				{
-					count: 16
+					count: 64
 					id: "6DF63DB4B0002915"
 					item: {
 						Count: 1
-						id: "create_enchantment_industry:hyper_experience_bottle"
+						id: "create_enchantment_industry:super_experience_nugget"
 						tag: { }
 					}
 					type: "item"

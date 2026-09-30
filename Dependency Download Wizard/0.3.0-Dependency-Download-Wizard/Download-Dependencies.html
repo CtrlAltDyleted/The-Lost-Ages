@@ -20,20 +20,21 @@
     .dependencies li { position: relative; display: flex; flex-direction: column; min-height: 170px; padding: 22px 22px 22px 72px; background: #222832; border: 1px solid #394250; border-radius: 12px; counter-increment: dependency; }
     .dependencies li::before { content: counter(dependency); position: absolute; left: 22px; top: 22px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: #404958; color: #fff; font-weight: 800; }
     .last-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
-    ol.dependencies.optional-pack { display: block; counter-reset: dependency 9; }
-    .optional-pack li { height: 100%; }
-    .optional-pack li::after { content: "Optional"; position: absolute; top: 22px; right: 22px; padding: 5px 9px; color: #b9c3d1; background: #404958; border-radius: 6px; font-size: .72rem; font-weight: 700; }
+    ol.dependencies.optional-packs { grid-column: span 2; grid-template-columns: repeat(2, minmax(0, 1fr)); counter-reset: dependency 9; }
+    .optional-packs li { height: 100%; }
+    .optional-packs li::after { content: "Optional"; position: absolute; top: 22px; right: 22px; padding: 5px 9px; color: #b9c3d1; background: #404958; border-radius: 6px; font-size: .72rem; font-weight: 700; }
+    .optional-packs strong { padding-right: 80px; }
     .dependencies strong, .dependencies code { display: block; }
     .dependencies code { margin: 5px 0 12px; overflow-wrap: anywhere; color: #d8e0eb; font-size: .9rem; }
     a { align-self: flex-start; margin-top: auto; color: #111318; background: #5bc2fa; border-radius: 8px; display: inline-block; padding: 12px 18px; font-weight: 700; text-decoration: none; }
     a:hover, a:focus-visible { background: #8fd6fc; }
     a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-    .note { grid-column: span 2; display: flex; flex-direction: column; justify-content: center; padding: 24px 32px; background: #242a33; border-radius: 10px; }
-    .note h2 { margin-bottom: 8px; }
-    .note p { margin: 0; font-size: 1.2rem; line-height: 1.5; }
+    .note { display: flex; flex-direction: column; justify-content: center; padding: 18px 24px; background: #242a33; border-radius: 10px; }
+    .note h2 { margin-bottom: 6px; }
+    .note p { margin: 0; font-size: .95rem; line-height: 1.35; }
     code { font-family: Consolas, monospace; }
-    @media (max-width: 1000px) { ol.dependencies, .last-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .note { grid-column: auto; } }
-    @media (max-width: 650px) { :root { font-size: 16px; } body { padding: 12px; } header, .content { padding: 24px 18px; } ol.dependencies, .last-row { grid-template-columns: 1fr; } .note { padding: 22px; } }
+    @media (max-width: 1000px) { ol.dependencies, .last-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .note { grid-column: span 2; } }
+    @media (max-width: 650px) { :root { font-size: 16px; } body { padding: 12px; } header, .content { padding: 24px 18px; } ol.dependencies, .last-row, ol.dependencies.optional-packs { grid-template-columns: 1fr; } ol.dependencies.optional-packs, .note { grid-column: auto; } .note { padding: 22px; } }
   </style>
 </head>
 <body>
@@ -58,12 +59,13 @@
       <li><strong>Pipez Lag Fix</strong><code>pipezlagfix-1.20.1-1.1.0-all.jar</code><a href="https://www.curseforge.com/minecraft/mc-mods/pipez-lag-fix/download/8113994" target="_blank" rel="noopener noreferrer">Download on CurseForge</a></li>
     </ol>
     <div class="last-row">
-      <ol class="dependencies optional-pack">
+      <ol class="dependencies optional-packs">
         <li><strong>Lopy's Create Style Pipez</strong><code>Lopy-Create-Pipez.zip</code><a href="https://www.curseforge.com/minecraft/texture-packs/create-pipez/download/4691998" target="_blank" rel="noopener noreferrer">Download resource pack</a></li>
+        <li><strong>Mob Grinding Utils: Vanillafied</strong><code>Mob Grinding Utils Vanillafied.zip</code><a href="https://www.curseforge.com/minecraft/texture-packs/mob-grinding-utils-vanillafied/download/6240614" target="_blank" rel="noopener noreferrer">Download resource pack</a></li>
       </ol>
       <div class="note">
         <h2>After downloading</h2>
-        <p>Move the downloaded JAR files and <code>thelostages-0.3.0.jar</code> into the client and dedicated server <code>mods</code> folders. Place the optional resource pack ZIP in the client's <code>resourcepacks</code> folder.</p>
+        <p>Move the downloaded JAR files and thelostages-0.3.0.jar into the client/server mods folder. Place either or both optional resource pack ZIPs in the client's resourcepacks folder.</p>
       </div>
     </div>
     </div>
