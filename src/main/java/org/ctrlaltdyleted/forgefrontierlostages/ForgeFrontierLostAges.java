@@ -65,6 +65,11 @@ public class ForgeFrontierLostAges
     public static final RegistryObject<Item> SKYSTONIUM_ITEM = ITEMS.register("skystonium", () -> new BlockItem(SKYSTONIUM.get(), new Item.Properties()));
     public static final RegistryObject<Item> INCOMPLETE_ACTIVE_CERTUSITE_VENT_ITEM = ITEMS.register("incomplete_active_certusite_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_CERTUSITE_VENT.get(), new Item.Properties()));
     public static final RegistryObject<Item> INCOMPLETE_ACTIVE_SKYSTONIUM_VENT_ITEM = ITEMS.register("incomplete_active_skystonium_vent", () -> new NonPlaceableBlockItem(INCOMPLETE_ACTIVE_SKYSTONIUM_VENT.get(), new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_UNIVERSAL_PIPE = ITEMS.register("incomplete_universal_pipe", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_BASIC_UPGRADE = ITEMS.register("incomplete_basic_upgrade", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_IMPROVED_UPGRADE = ITEMS.register("incomplete_improved_upgrade", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_ADVANCED_UPGRADE = ITEMS.register("incomplete_advanced_upgrade", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> INCOMPLETE_ULTIMATE_UPGRADE = ITEMS.register("incomplete_ultimate_upgrade", () -> new Item(new Item.Properties()));
 
     public ForgeFrontierLostAges(FMLJavaModLoadingContext context)
     {

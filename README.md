@@ -8,8 +8,8 @@ It adds original quests, recipes, integrations, progression changes, compatibili
 
 ## Project Status
 
-- Current version: 0.2.0
-- Latest published CurseForge release: 0.2.0
+- Current version: 0.3.0
+- Latest published CurseForge release: 0.3.0
 - Minecraft: 1.20.1
 - Forge: 47.4.20
 - Create: Forge Frontier baseline: 3.1.5
@@ -22,9 +22,9 @@ https://www.curseforge.com/minecraft/mc-mods/the-lost-ages
 
 The Lost Ages is intended for use with Create: Forge Frontier and is not designed as a standalone mod.
 
-Install the compatible version of Create: Forge Frontier, then install The Lost Ages and its required dependencies.
+Install a compatible version of Create: Forge Frontier, then install The Lost Ages and its required dependencies.
 
-For a clean Create: Forge Frontier instance, The Lost Ages 0.2.0 requires these additional mods:
+For a clean Create: Forge Frontier 3.1.1 + instance, The Lost Ages 0.3.0 requires these additional mods:
 
 - AppliedFlux — AppliedFlux-1.20-1.3.7-forge.jar
 - AE2 Network Analyser — AE2NetworkAnalyzer-1.20-1.0.6-forge.jar
@@ -33,10 +33,12 @@ For a clean Create: Forge Frontier instance, The Lost Ages 0.2.0 requires these 
 - Botany Pots — BotanyPots-Forge-1.20.1-13.0.43.jar
 - Botany Pots Tiers — BotanyPotsTiers-Forge-1.20.1-6.0.2.jar (mod version is 6.0.1)
 - Botany Trees — BotanyTrees-Forge-1.20.1-9.0.20.jar
+- Pipez — pipez-forge-1.20.1-1.2.26.jar
+- Pipez Lag Fix — pipezlagfix-1.20.1-1.1.0-all.jar
 
-Core requirements such as Forge, Minecraft, KubeJS, FTB Quests, Create, Create Resource Vents, Applied Energistics 2, and Ad Astra are supplied by the Forge Frontier baseline.
+Core requirements such as Forge, Minecraft, KubeJS, FTB Quests, Create, Create Resource Vents, Applied Energistics 2, Ad Astra, Pretty Pipes, Pretty Pipes: Fluids, Create: Dreams & Desires, Create: New Age, and Create: Quality of Life are supplied by the Forge Frontier baseline. Install the same additional mods on the dedicated server and each client.
 
-The CurseForge release includes a Dependency Downloader under Additional Files to assist with installing dependencies that are not already included with Create: Forge Frontier.
+The CurseForge release includes a Dependency Downloader under Additional Files to assist with installing the mod's dependencies that are not already included with Create: Forge Frontier. The latest version is also hosted here on GitHub.
 
 ## Content
 
@@ -51,6 +53,7 @@ The Lost Ages includes:
 - Custom Certusite and Skystonium Resource Vents content
 - Curios terminal-slot compatibility
 - Easy Villagers Auto Trader integration
+- Pipez crafting integrated with Pretty Pipes and Create, with Pipez Lag Fix
 - Compatibility and configuration adjustments for Create: Forge Frontier
 
 ## Quest Authorship

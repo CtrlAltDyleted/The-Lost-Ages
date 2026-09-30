@@ -2,5 +2,10 @@
   "block.forgefrontierlostages.certusite": "Certusite",
   "block.forgefrontierlostages.skystonium": "Skystonium",
   "block.forgefrontierlostages.incomplete_active_certusite_vent": "Incomplete Active Certusite Vent",
-  "block.forgefrontierlostages.incomplete_active_skystonium_vent": "Incomplete Active Skystonium Vent"
+  "block.forgefrontierlostages.incomplete_active_skystonium_vent": "Incomplete Active Skystonium Vent",
+  "item.forgefrontierlostages.incomplete_universal_pipe": "Incomplete Universal Pipe",
+  "item.forgefrontierlostages.incomplete_basic_upgrade": "Incomplete Basic Pipez Upgrade",
+  "item.forgefrontierlostages.incomplete_improved_upgrade": "Incomplete Improved Pipez Upgrade",
+  "item.forgefrontierlostages.incomplete_advanced_upgrade": "Incomplete Advanced Pipez Upgrade",
+  "item.forgefrontierlostages.incomplete_ultimate_upgrade": "Incomplete Ultimate Pipez Upgrade"
 }

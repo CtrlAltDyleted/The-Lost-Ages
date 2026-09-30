@@ -1,3 +1,11 @@
+## 0.3.0
+
+### Added
+- Restored Pipez and added Pipez Lag Fix as required dependencies.
+- Added Create Item Application recipes for Pipez item, fluid, and energy pipes.
+- Added a Sequenced Assembly Recipe for the Universal Pipe using Blaze Brass Casing and the three pipes.
+- Added Pretty Pipes based Sequenced Assembly Recipes for the Pipez upgrades.
+
 ## 0.2.1
 
 ### Added
