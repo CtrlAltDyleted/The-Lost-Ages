@@ -3,15 +3,13 @@ package org.ctrlaltdyleted.thelostages.quests;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.slf4j.Logger;
+import org.ctrlaltdyleted.thelostages.patching.AtomicPatchWriter;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -43,7 +41,9 @@ public final class AppliedEnergisticsQuestPatcher
             "398D0D8B52F362A8",
             "0D2E92335FE90783",
             "4F1BEB3735E8FAF3",
-            "2D29B28CE2CBC26D"
+            "2D29B28CE2CBC26D",
+            "2700D7FC24ECFC37",
+            "7DEDDFAAD0F66A11"
     );
 
     private AppliedEnergisticsQuestPatcher()
@@ -140,7 +140,7 @@ public final class AppliedEnergisticsQuestPatcher
 
         try
         {
-            writeAtomically(targetChapterPath, updatedChapter);
+            AtomicPatchWriter.write(targetChapterPath, updatedChapter);
             LOGGER.info("Patched AE2 quest chapter with Lost Ages additions: {}", targetChapterPath);
         }
         catch (IOException e)
@@ -561,7 +561,7 @@ public final class AppliedEnergisticsQuestPatcher
                     if (cursor < content.length() && content.charAt(cursor) == '[')
                     {
                         final int listOpen = cursor;
-                        final int listClose = findMatchingBracket(content, listOpen, '[', ']');
+                        final int listClose = QuestSnbtText.findMatchingBracket(content, listOpen, '[', ']');
                         if (listClose < 0)
                         {
                             throw new IllegalArgumentException("Unterminated " + key + " list in " + context);
@@ -641,90 +641,6 @@ public final class AppliedEnergisticsQuestPatcher
         }
 
         throw new IllegalArgumentException("Malformed structure in " + context + " (unterminated root compound)");
-    }
-
-    private static int findMatchingBracket(String text, int openIndex, char open, char close)
-    {
-        int depth = 0;
-        boolean inString = false;
-        char quote = 0;
-        boolean escaped = false;
-
-        for (int i = openIndex; i < text.length(); i++)
-        {
-            final char c = text.charAt(i);
-            if (inString)
-            {
-                if (escaped)
-                {
-                    escaped = false;
-                    continue;
-                }
-                if (c == '\\')
-                {
-                    escaped = true;
-                    continue;
-                }
-                if (c == quote)
-                {
-                    inString = false;
-                }
-                continue;
-            }
-
-            if (c == '"' || c == '\'')
-            {
-                inString = true;
-                quote = c;
-                continue;
-            }
-
-            if (c == open)
-            {
-                depth++;
-            }
-            else if (c == close)
-            {
-                depth--;
-                if (depth == 0)
-                {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    private static void writeAtomically(Path path, String content) throws IOException
-    {
-        final Path parent = path.getParent();
-        if (parent != null)
-        {
-            Files.createDirectories(parent);
-        }
-
-        final Path tempFile = parent != null
-                ? Files.createTempFile(parent, path.getFileName().toString(), ".tmp")
-                : Files.createTempFile(path.getFileName().toString(), ".tmp");
-        try
-        {
-            Files.writeString(tempFile, content, StandardCharsets.UTF_8, StandardOpenOption.TRUNCATE_EXISTING);
-            try
-            {
-                Files.move(tempFile, path, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
-            }
-            catch (AtomicMoveNotSupportedException e)
-            {
-                Files.move(tempFile, path, StandardCopyOption.REPLACE_EXISTING);
-            }
-        }
-        finally
-        {
-            if (Files.exists(tempFile))
-            {
-                Files.deleteIfExists(tempFile);
-            }
-        }
     }
 
     private record QuestObject(String id, String text, int startInclusive, int endExclusive)

@@ -363,10 +363,81 @@
 						}
 					}
 				}
+				match_nbt: true
 				type: "item"
 			}]
 			x: -3.5d
 			y: 5.5d
 		}
-    ]
+    {
+			dependencies: ["6746219A1E4B547C"]
+			description: ["The Infinity Water Cell allows you to have an infinite water source directly inside your ME system. Very useful for creating singularities!"]
+			id: "2700D7FC24ECFC37"
+			rewards: [
+				{
+					id: "448D54894EB38D87"
+					item: "ae2:cell_component_4k"
+					type: "item"
+				}
+				{
+					id: "33E2D844A84FF895"
+					type: "xp"
+					xp: 200
+				}
+			]
+			subtitle: "No More 2x2 Water Hole"
+			tasks: [{
+				id: "12BC0674E90DC232"
+				item: {
+					Count: 1
+					id: "expatternprovider:infinity_cell"
+					tag: {
+						record: {
+							"#c": "ae2:f"
+							id: "minecraft:water"
+						}
+					}
+				}
+				match_nbt: true
+				type: "item"
+			}]
+			x: -2.0d
+			y: 5.5d
+		}
+{
+			dependencies: ["6746219A1E4B547C"]
+			description: ["The Infinity Cobblestone Cell allows you to have an infinite cobblestone source directly inside your ME system. Very useful for creating singularities!"]
+			id: "7DEDDFAAD0F66A11"
+			rewards: [
+				{
+					id: "106D0F2674788C59"
+					item: "ae2:cell_component_4k"
+					type: "item"
+				}
+				{
+					id: "1B27CC1E84C2F900"
+					type: "xp"
+					xp: 200
+				}
+			]
+			subtitle: "No More Drilling!"
+			tasks: [{
+				id: "2696306802146A9E"
+				item: {
+					Count: 1
+					id: "expatternprovider:infinity_cell"
+					tag: {
+						record: {
+							"#c": "ae2:i"
+							id: "minecraft:cobblestone"
+						}
+					}
+				}
+				match_nbt: true
+				type: "item"
+			}]
+			x: -1.0d
+			y: 5.5d
+		}
+]
 }

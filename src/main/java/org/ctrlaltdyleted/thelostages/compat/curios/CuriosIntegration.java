@@ -7,7 +7,6 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.api.distmarker.Dist;
 import org.slf4j.Logger;
 
-/** Loads the optional bridge only after its three dependencies pass API checks. */
 public final class CuriosIntegration {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static volatile boolean enabled;
@@ -38,9 +37,9 @@ public final class CuriosIntegration {
                         net.minecraft.client.gui.GuiGraphics.class, int.class, int.class, int.class, int.class, float.class);
             }
             CuriosNetwork.initialize();
-            MinecraftForge.EVENT_BUS.register(new CuriosServerEvents());
+            MinecraftForge.EVENT_BUS.register(new ExportCardTransfer());
             if (FMLEnvironment.dist == Dist.CLIENT) {
-                CuriosClientBootstrap.initialize();
+                CuriosExportScreenEvents.initialize();
             }
             enabled = true;
             LOGGER.info("AE2 Export Card Curios integration enabled; verified API baseline: AE2 15.4.10, Curios 5.14.1, card 1.3.0");

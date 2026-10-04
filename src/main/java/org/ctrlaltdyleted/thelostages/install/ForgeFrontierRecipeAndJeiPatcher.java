@@ -2,6 +2,8 @@ package org.ctrlaltdyleted.thelostages.install;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -9,12 +11,15 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class KubeJsScriptManager
+public final class ForgeFrontierRecipeAndJeiPatcher
 {
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final String AUTO_TRADER_ENTRY = "easy_villagers:auto_trader";
     private static final Pattern AUTO_TRADER_ARRAY_LINE =
             Pattern.compile("(?m)^[\\t ]*['\"]easy_villagers:auto_trader['\"][\\t ]*,?[\\t ]*\\R?");
     private static final Pattern AUTO_TRADER_TOKEN =
@@ -26,11 +31,84 @@ public final class KubeJsScriptManager
     private static final Pattern COBBLESTONE_REMOVAL_LINE = Pattern.compile(
             "(?m)^[\\t ]*event\\.remove\\(\\{[\\t ]*id:[\\t ]*['\"]expatternprovider:cobblestone_cell['\"][\\t ]*\\}\\)[\\t ]*;?[\\t ]*\\R?");
 
-    private KubeJsScriptManager()
+    private ForgeFrontierRecipeAndJeiPatcher()
     {
     }
 
-    /** Leave ExtendedAE's original shaped recipe in place by removing one pack removal instruction. */
+    public static void removeAutoTraderBlacklistEntry()
+    {
+        if (FMLEnvironment.dist != Dist.CLIENT)
+        {
+            return;
+        }
+
+        final Path blacklistPath = FMLPaths.CONFIGDIR.get()
+                .resolve("jei")
+                .resolve("blacklist.cfg");
+
+        if (Files.notExists(blacklistPath))
+        {
+            LOGGER.debug("JEI blacklist not found, skipping Auto Trader removal: {}", blacklistPath);
+            return;
+        }
+
+        try
+        {
+            final String original = Files.readString(blacklistPath, StandardCharsets.UTF_8);
+            final boolean endsWithNewline = original.endsWith("\n") || original.endsWith("\r\n");
+            final String[] lines = original.split("\\r?\\n", -1);
+
+            final List<String> retained = new ArrayList<>();
+            boolean removed = false;
+
+            for (final String line : lines)
+            {
+                if (line.trim().equals(AUTO_TRADER_ENTRY))
+                {
+                    removed = true;
+                }
+                else
+                {
+                    retained.add(line);
+                }
+            }
+
+            if (!removed)
+            {
+                LOGGER.debug("JEI blacklist: Auto Trader entry already absent, nothing to do.");
+                return;
+            }
+
+            final StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < retained.size(); i++)
+            {
+                sb.append(retained.get(i));
+                if (i < retained.size() - 1)
+                {
+                    sb.append('\n');
+                }
+            }
+            if (endsWithNewline && sb.length() > 0)
+            {
+                sb.append('\n');
+            }
+
+            Files.writeString(
+                    blacklistPath,
+                    sb.toString(),
+                    StandardCharsets.UTF_8,
+                    StandardOpenOption.WRITE,
+                    StandardOpenOption.TRUNCATE_EXISTING
+            );
+
+            LOGGER.info("JEI blacklist: removed '{}' entry so the Auto Trader appears in JEI.", AUTO_TRADER_ENTRY);
+        }
+        catch (IOException e)
+        {
+            LOGGER.warn("JEI blacklist: failed to patch {} — Auto Trader may remain hidden in JEI.", blacklistPath, e);
+        }
+    }
+
     public static void restoreInfinityCobblestoneRecipe()
     {
         final Path gameDirectory = FMLPaths.GAMEDIR.get().toAbsolutePath().normalize();

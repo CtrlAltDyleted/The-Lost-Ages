@@ -1,4 +1,3 @@
-// Managed by The Lost Ages.
 JEIEvents.hideItems(event => {
     const hiddenItems = [
         'mob_grinding_utils:null_sword',

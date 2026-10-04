@@ -1,5 +1,3 @@
-// Botany_Pots_Changes.js
-// Managed by The Lost Ages. Do not edit manually.
 
 ServerEvents.recipes(function(event) {
 

@@ -119,18 +119,18 @@ public final class ResourceVentsConfigPatcher
     private static JsonObject appendLostAgesVents(JsonObject root)
     {
         final JsonArray vents = root.getAsJsonArray(VENTS_KEY);
-        vents.add(createCertusiteVent());
-        vents.add(createSkystoniumVent());
+        vents.add(createVent(CERTUSITE_NAME, "thelostages:certusite", "create_ethium:echo_compound_fluid"));
+        vents.add(createVent(SKYSTONIUM_NAME, "thelostages:skystonium", "create_dragons_plus:black_dye"));
         return root;
     }
 
-    private static JsonObject createCertusiteVent()
+    private static JsonObject createVent(String name, String blockId, String fluidId)
     {
         final JsonObject vent = new JsonObject();
-        vent.addProperty(NAME_KEY, CERTUSITE_NAME);
+        vent.addProperty(NAME_KEY, name);
 
         final JsonObject generatedBlock = new JsonObject();
-        generatedBlock.addProperty("id", "thelostages:certusite");
+        generatedBlock.addProperty("id", blockId);
         generatedBlock.add("properties", new JsonArray());
 
         final JsonArray generatedBlocks = new JsonArray();
@@ -138,28 +138,7 @@ public final class ResourceVentsConfigPatcher
         vent.add("generatedBlocks", generatedBlocks);
 
         final JsonArray reactantFluids = new JsonArray();
-        reactantFluids.add("create_ethium:echo_compound_fluid");
-        vent.add("reactantFluids", reactantFluids);
-
-        vent.addProperty("maxGenerationDistance", 1);
-        return vent;
-    }
-
-    private static JsonObject createSkystoniumVent()
-    {
-        final JsonObject vent = new JsonObject();
-        vent.addProperty(NAME_KEY, SKYSTONIUM_NAME);
-
-        final JsonObject generatedBlock = new JsonObject();
-        generatedBlock.addProperty("id", "thelostages:skystonium");
-        generatedBlock.add("properties", new JsonArray());
-
-        final JsonArray generatedBlocks = new JsonArray();
-        generatedBlocks.add(generatedBlock);
-        vent.add("generatedBlocks", generatedBlocks);
-
-        final JsonArray reactantFluids = new JsonArray();
-        reactantFluids.add("create_dragons_plus:black_dye");
+        reactantFluids.add(fluidId);
         vent.add("reactantFluids", reactantFluids);
 
         vent.addProperty("maxGenerationDistance", 1);

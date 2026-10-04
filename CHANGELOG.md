@@ -1,3 +1,17 @@
+## 0.3.2
+
+### Added
+- Added Reaction Chamber recipes for Redstone from Dirty Iron Dust and Glowstone Dust from Dirty Tin Dust.
+
+### Fixed
+- Restored the three standard AE2 Charger processing recipes removed by Forge Frontier.
+- Changed the Logic Circuit printing ingredient from Gold Ingots to Create Gold Sheets.
+- Restored the ExtendedAE Extended Inscriber to JEI.
+- Enabled NBT matching for the Water, Cobblestone, and Lava Infinity Cell quests while preserving their quest and task IDs.
+
+### Changed
+- Increased the Sky Insulating Resin reaction batch to 16 of each solid ingredient and 64 output for parity with Mega Cells.
+
 ## 0.3.1
 
 ### Fixed

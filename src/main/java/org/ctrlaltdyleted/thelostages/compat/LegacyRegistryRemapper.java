@@ -7,7 +7,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.MissingMappingsEvent;
 import org.ctrlaltdyleted.thelostages.TheLostAges;
 
-/** Remap blocks and items saved before the mod ID changed for 0.3.0. */
 public final class LegacyRegistryRemapper {
     private static final String OLD_NAMESPACE = "forgefrontierlostages";
 

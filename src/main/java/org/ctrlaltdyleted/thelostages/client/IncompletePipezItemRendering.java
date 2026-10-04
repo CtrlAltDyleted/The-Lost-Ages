@@ -23,10 +23,10 @@ import org.ctrlaltdyleted.thelostages.TheLostAges;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = TheLostAges.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public final class IncompletePipezItemColors {
+public final class IncompletePipezItemRendering {
     private static final int MUTED_COLOR = 0xB0B0B0;
 
-    private IncompletePipezItemColors() {}
+    private IncompletePipezItemRendering() {}
 
     @SubscribeEvent
     public static void register(RegisterColorHandlersEvent.Item event) {

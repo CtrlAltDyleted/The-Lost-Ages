@@ -17,10 +17,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.ctrlaltdyleted.thelostages.config.Ae2ClientConfigPatcher;
 import org.ctrlaltdyleted.thelostages.config.ExtendedAeInfinityConfigPatcher;
 import org.ctrlaltdyleted.thelostages.compat.curios.CuriosIntegration;
-import org.ctrlaltdyleted.thelostages.config.JeiBlacklistManager;
 import org.ctrlaltdyleted.thelostages.config.LogBegoneConfigPatcher;
 import org.ctrlaltdyleted.thelostages.config.ResourceVentsConfigPatcher;
-import org.ctrlaltdyleted.thelostages.install.KubeJsScriptManager;
+import org.ctrlaltdyleted.thelostages.install.ForgeFrontierRecipeAndJeiPatcher;
 import org.ctrlaltdyleted.thelostages.install.ManagedFileInstaller;
 import org.ctrlaltdyleted.thelostages.item.NonPlaceableBlockItem;
 import org.ctrlaltdyleted.thelostages.compat.LegacyRegistryRemapper;
@@ -81,11 +80,11 @@ public class TheLostAges
         ITEMS.register(modEventBus);
         MinecraftForge.EVENT_BUS.addListener(LegacyRegistryRemapper::onMissingMappings);
 
-        JeiBlacklistManager.removeAutoTraderBlacklistEntry();
+        ForgeFrontierRecipeAndJeiPatcher.removeAutoTraderBlacklistEntry();
         ResourceVentsConfigPatcher.patch();
         LogBegoneConfigPatcher.patch();
-        KubeJsScriptManager.patchExternalCompactingRecipes();
-        KubeJsScriptManager.restoreInfinityCobblestoneRecipe();
+        ForgeFrontierRecipeAndJeiPatcher.patchExternalCompactingRecipes();
+        ForgeFrontierRecipeAndJeiPatcher.restoreInfinityCobblestoneRecipe();
         ExtendedAeInfinityConfigPatcher.ensureLavaType();
         ManagedFileInstaller.install();
         QuestMetadataPatcher.patch();

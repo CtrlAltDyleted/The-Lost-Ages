@@ -22,7 +22,6 @@ affiliated with, endorsed by, or maintained by the Create: Forge Frontier
 developers.
 '''
 
-# Core dependencies
 
 [[dependencies.${mod_id}]]
 modId="forge"
@@ -80,7 +79,6 @@ versionRange="[1.15.20,1.16.0)"
 ordering="AFTER"
 side="BOTH"
 
-# Additional required mods
 
 [[dependencies.${mod_id}]]
 modId="appflux"
@@ -131,7 +129,6 @@ versionRange="[6.0.1,)"
 ordering="AFTER"
 side="BOTH"
 
-# Pipez and the existing Forge Frontier transport/processing stack
 [[dependencies.${mod_id}]]
 modId="pipez"
 mandatory=true

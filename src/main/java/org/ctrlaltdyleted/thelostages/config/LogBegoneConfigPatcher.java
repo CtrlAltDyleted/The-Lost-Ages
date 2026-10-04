@@ -5,14 +5,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.slf4j.Logger;
+import org.ctrlaltdyleted.thelostages.patching.AtomicPatchWriter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -270,7 +268,7 @@ public final class LogBegoneConfigPatcher
                 {
                     throw new IllegalArgumentException("Unterminated array for key '" + key + "'");
                 }
-                return new AssignmentRange(key, arrayStart, arrayEnd + 1);
+                return new AssignmentRange(arrayStart, arrayEnd + 1);
             }
         }
 
@@ -401,7 +399,7 @@ public final class LogBegoneConfigPatcher
             if (c == '"' || c == '\'')
             {
                 final StringLiteral literal = readTomlStringLiteral(content, i);
-                values.add(new ArrayValue(literal.value(), i, literal.endExclusive()));
+                values.add(new ArrayValue(literal.value(), i));
                 i = literal.endExclusive();
                 continue;
             }
@@ -704,44 +702,22 @@ public final class LogBegoneConfigPatcher
 
     private static void writeAtomically(Path path, String content) throws IOException
     {
-        final Path parent = path.getParent();
-        if (parent == null)
+        if (path.getParent() == null)
         {
             throw new IOException("Config path has no parent directory: " + path);
         }
-
-        Files.createDirectories(parent);
-        final Path tempFile = Files.createTempFile(parent, path.getFileName().toString(), ".tmp");
-        try
-        {
-            Files.writeString(tempFile, content, StandardCharsets.UTF_8, StandardOpenOption.TRUNCATE_EXISTING);
-            try
-            {
-                Files.move(tempFile, path, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
-            }
-            catch (AtomicMoveNotSupportedException e)
-            {
-                Files.move(tempFile, path, StandardCopyOption.REPLACE_EXISTING);
-            }
-        }
-        finally
-        {
-            if (Files.exists(tempFile))
-            {
-                Files.deleteIfExists(tempFile);
-            }
-        }
+        AtomicPatchWriter.write(path, content);
     }
 
     private record SectionRange(int bodyStartInclusive, int bodyEndExclusive)
     {
     }
 
-    private record AssignmentRange(String key, int arrayStartInclusive, int arrayEndExclusive)
+    private record AssignmentRange(int arrayStartInclusive, int arrayEndExclusive)
     {
     }
 
-    private record ArrayValue(String value, int startQuoteInclusive, int endQuoteExclusive)
+    private record ArrayValue(String value, int startQuoteInclusive)
     {
     }
 

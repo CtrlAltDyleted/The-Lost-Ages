@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
 
-final class CuriosServerEvents {
+final class ExportCardTransfer {
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (!CuriosIntegration.enabled()) return;
@@ -186,4 +186,63 @@ final class CuriosServerEvents {
         }, target) > 0;
     }
 
+
+    private static final class EnergyTransfer {
+        interface Source {
+            long extract(int amount, boolean simulate);
+            void refund(long amount);
+        }
+
+        interface Target {
+            int receive(int amount, boolean simulate);
+        }
+
+        private EnergyTransfer() {}
+
+        static int charge(int limit, Source source, Target target) {
+            int accepted = target.receive(limit, true);
+            if (accepted <= 0) return 0;
+            long available = source.extract(Math.min(limit, accepted), true);
+            if (available <= 0) return 0;
+            int simulated = target.receive((int) Math.min(available, accepted), true);
+            if (simulated <= 0) return 0;
+            long extracted = source.extract(simulated, false);
+            if (extracted <= 0) return 0;
+            int received = target.receive((int) extracted, false);
+            if (received < extracted) source.refund(extracted - received);
+            return received;
+        }
+    }
+
+    private static final class AeEnergyTarget implements EnergyTransfer.Target {
+        interface Storage {
+            double maxPower();
+            double currentPower();
+            double chargeRate();
+            double inject(double ae, boolean simulate);
+        }
+
+        private final Storage storage;
+        private final double aePerFe;
+
+        AeEnergyTarget(Storage storage, double aePerFe) {
+            this.storage = storage;
+            this.aePerFe = aePerFe;
+        }
+
+        @Override
+        public int receive(int requestedFe, boolean simulate) {
+            if (requestedFe <= 0 || !Double.isFinite(aePerFe) || aePerFe <= 0) return 0;
+            double roomAe = Math.max(0, storage.maxPower() - storage.currentPower());
+            double rateAe = Math.max(0, storage.chargeRate());
+            int roomFe = (int) Math.min(Integer.MAX_VALUE, Math.floor(roomAe / aePerFe));
+            int rateFe = (int) Math.min(Integer.MAX_VALUE, Math.floor(rateAe / aePerFe));
+            int offeredFe = Math.min(requestedFe, Math.min(roomFe, rateFe));
+            if (offeredFe <= 0) return 0;
+            double offeredAe = offeredFe * aePerFe;
+            double unusedAe = storage.inject(offeredAe, simulate);
+            return Math.min(offeredFe,
+                    (int) Math.floor(Math.max(0, offeredAe - unusedAe) / aePerFe + 1e-6));
+        }
+    }
 }

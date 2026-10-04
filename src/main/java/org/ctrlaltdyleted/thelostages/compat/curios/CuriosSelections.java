@@ -10,7 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Independent export-card NBT; the card's existing inventory selection is untouched. */
 public final class CuriosSelections {
     public static final String KEY = "lostAgesCuriosExportSlots";
     private static final ResourceLocation EXPORT_CARD = new ResourceLocation("ae2insertexportcard", "export_card");

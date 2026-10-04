@@ -13,7 +13,6 @@ import java.nio.file.StandardOpenOption;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Adds one supported fluid type without replacing the user's ExtendedAE config. */
 public final class ExtendedAeInfinityConfigPatcher {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Pattern TYPES = Pattern.compile("(?m)^([\\t ]*types[\\t ]*=[\\t ]*\\[)([^\\]\\r\\n]*)(\\])");

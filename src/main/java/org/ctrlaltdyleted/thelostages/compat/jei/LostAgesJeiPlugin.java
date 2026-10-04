@@ -3,30 +3,40 @@ package org.ctrlaltdyleted.thelostages.compat.jei;
 import appeng.api.integrations.jei.IngredientConverter;
 import appeng.api.integrations.jei.IngredientConverters;
 import appeng.api.stacks.GenericStack;
+import com.mojang.logging.LogUtils;
 import com.glodblock.github.appflux.client.render.FluxKeyRenderHandler;
 import com.glodblock.github.appflux.common.me.key.FluxKey;
 import com.glodblock.github.appflux.common.me.key.type.EnergyType;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.IIngredientRenderer;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.registration.IModIngredientRegistration;
+import mezz.jei.api.runtime.IEditModeConfig;
+import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.slf4j.Logger;
 
 import java.util.List;
 
 @JeiPlugin
-public final class AppliedFluxFeJeiPlugin implements IModPlugin {
+public final class LostAgesJeiPlugin implements IModPlugin {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private static final ResourceLocation UID = new ResourceLocation("thelostages", "applied_flux_fe");
+    private static final ResourceLocation INFINITY_CELL = new ResourceLocation("expatternprovider", "infinity_cell");
+    private static final ResourceLocation EXTENDED_INSCRIBER = new ResourceLocation("expatternprovider", "ex_inscriber");
 
-    public AppliedFluxFeJeiPlugin() {
+    public LostAgesJeiPlugin() {
         if (ModList.get().isLoaded("appflux")) IngredientConverters.register(FeIngredient.CONVERTER);
     }
 
@@ -40,6 +50,36 @@ public final class AppliedFluxFeJeiPlugin implements IModPlugin {
         if (!ModList.get().isLoaded("appflux")) return;
         registration.register(FeIngredient.TYPE, List.of(FeIngredient.KEY),
                 FeIngredient.HELPER, FeIngredient.RENDERER);
+    }
+
+    @Override
+    public void onRuntimeAvailable(IJeiRuntime runtime) {
+        if (!ModList.get().isLoaded("expatternprovider")) return;
+        hideUnconfiguredInfinityCell(runtime);
+        showExtendedInscriber(runtime);
+    }
+
+    private static void hideUnconfiguredInfinityCell(IJeiRuntime runtime) {
+        var ingredients = runtime.getIngredientManager();
+        List<ItemStack> unconfigured = ingredients.getAllIngredients(VanillaTypes.ITEM_STACK).stream()
+                .filter(stack -> INFINITY_CELL.equals(ForgeRegistries.ITEMS.getKey(stack.getItem())))
+                .filter(stack -> !stack.hasTag())
+                .toList();
+        if (unconfigured.isEmpty()) return;
+        ingredients.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, unconfigured);
+        LOGGER.info("Removed {} unconfigured Infinity Cell entry from JEI; recorded variants remain visible",
+                unconfigured.size());
+    }
+
+    private static void showExtendedInscriber(IJeiRuntime runtime) {
+        var item = ForgeRegistries.ITEMS.getValue(EXTENDED_INSCRIBER);
+        if (item == null) return;
+        runtime.getIngredientManager().createTypedIngredient(VanillaTypes.ITEM_STACK, new ItemStack(item))
+                .ifPresent(ingredient -> {
+                    for (IEditModeConfig.HideMode mode : IEditModeConfig.HideMode.values()) {
+                        runtime.getEditModeConfig().showIngredientUsingConfigFile(ingredient, mode);
+                    }
+                });
     }
 
     private static final class FeIngredient {

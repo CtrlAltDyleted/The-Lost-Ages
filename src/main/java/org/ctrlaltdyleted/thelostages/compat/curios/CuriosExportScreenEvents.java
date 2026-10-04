@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
@@ -25,7 +26,11 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-final class CuriosClientEvents {
+final class CuriosExportScreenEvents {
+    static void initialize() {
+        MinecraftForge.EVENT_BUS.register(new CuriosExportScreenEvents());
+    }
+
     private static final ResourceLocation INVENTORY = new ResourceLocation("curios", "textures/gui/inventory.png");
     private static final ResourceLocation EMPTY_SLOT = new ResourceLocation("curios", "slot/empty_curio_slot");
     private static final ResourceLocation XMARK = new ResourceLocation("thelostages", "textures/gui/export_slot_xmark.png");
@@ -263,7 +268,7 @@ final class CuriosClientEvents {
                 inventorySelectionsField.setAccessible(true);
             }
             int[] selections = (int[]) inventorySelectionsField.get(screen);
-            int index = slot.index - 21; // Export Card's inventory slot offset.
+            int index = slot.index - 21;
             if (index < 0 || index >= selections.length) return false;
             selections[index] = event.getButton() == 1 ? 0
                     : selections[index] >= 18 ? 0 : selections[index] + 1;

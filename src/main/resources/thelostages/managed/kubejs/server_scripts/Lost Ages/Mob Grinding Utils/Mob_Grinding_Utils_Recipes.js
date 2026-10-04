@@ -1,4 +1,3 @@
-// Managed by The Lost Ages.
 ServerEvents.recipes(event => {
     const id = name => 'thelostages:mob_grinding_utils/' + name
     const steel = '#forge:ingots/steel'
