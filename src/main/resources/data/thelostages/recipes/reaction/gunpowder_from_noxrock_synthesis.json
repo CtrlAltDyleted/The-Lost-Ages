@@ -1,0 +1,35 @@
+{
+  "type": "advanced_ae:reaction",
+  "energy": 50000,
+  "fluid": {
+    "fluidStack": {
+      "Amount": 500,
+      "FluidName": "minecraft:water"
+    }
+  },
+  "input_items": [
+    {
+      "amount": 16,
+      "ingredient": {
+        "item": "ae2:charged_certus_quartz_crystal"
+      }
+    },
+    {
+      "amount": 32,
+      "ingredient": {
+        "item": "ae2:matter_ball"
+      }
+    },
+    {
+      "amount": 64,
+      "ingredient": {
+        "item": "forge_frontier:dirty_noxrock_dust"
+      }
+    }
+  ],
+  "output": {
+    "#c": "ae2:i",
+    "#": 16,
+    "id": "minecraft:gunpowder"
+  }
+}

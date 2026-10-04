@@ -1,4 +1,4 @@
-The Lost Ages 0.3.2
+The Lost Ages 0.3.3
 Dependency Download Guide
 
 Open Download-Dependencies.html in a browser and choose the files you need
@@ -6,7 +6,7 @@ from the CurseForge download list.
 Middle-click or Ctrl+click a download button to open its page in a background tab.
 
 Download the listed JAR files, then place them and
-thelostages-0.3.2.jar in your client/server mods folder.
+thelostages-0.3.3.jar in your client/server mods folder.
 
 Optional: Download Lopy-Create-Pipez.zip, Mob Grinding Utils Vanillafied.zip,
 or both from the resource pack cards and put the ZIPs in the client's

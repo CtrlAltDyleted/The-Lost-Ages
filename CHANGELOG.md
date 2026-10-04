@@ -1,3 +1,8 @@
+## 0.3.3
+
+### Added
+- Added 27 more Reaction Chamber byproduct recipes, covering all metallurgy dirty-dust washing recipes.
+
 ## 0.3.2
 
 ### Added
