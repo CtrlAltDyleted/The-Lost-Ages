@@ -9,7 +9,7 @@ It adds original quests, recipes, integrations, progression changes, compatibili
 ## Project Status
 
 - Current version: 0.3.4
-- Latest published CurseForge release: 0.3.2
+- Latest published CurseForge release: 0.3.4
 - Minecraft: 1.20.1
 - Forge: 47.4.20
 - Create: Forge Frontier baseline: 3.1.5
