@@ -1,0 +1,13 @@
+{
+  "type": "expatternprovider:circuit_cutter",
+  "item_input": {
+    "amount": 1,
+    "ingredient": {
+      "item": "create:andesite_alloy_block"
+    }
+  },
+  "output": {
+    "count": 9,
+    "item": "appliedcreate:stress_circuit_board"
+  }
+}

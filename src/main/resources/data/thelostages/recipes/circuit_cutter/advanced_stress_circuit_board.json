@@ -1,0 +1,13 @@
+{
+  "type": "expatternprovider:circuit_cutter",
+  "item_input": {
+    "amount": 1,
+    "ingredient": {
+      "tag": "forge:storage_blocks/brass"
+    }
+  },
+  "output": {
+    "count": 9,
+    "item": "appliedcreate:advanced_stress_circuit_board"
+  }
+}

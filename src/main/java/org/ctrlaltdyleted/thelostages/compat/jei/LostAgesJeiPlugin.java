@@ -35,6 +35,7 @@ public final class LostAgesJeiPlugin implements IModPlugin {
     private static final ResourceLocation UID = new ResourceLocation("thelostages", "applied_flux_fe");
     private static final ResourceLocation INFINITY_CELL = new ResourceLocation("expatternprovider", "infinity_cell");
     private static final ResourceLocation EXTENDED_INSCRIBER = new ResourceLocation("expatternprovider", "ex_inscriber");
+    private static final ResourceLocation CIRCUIT_SLICER = new ResourceLocation("expatternprovider", "circuit_cutter");
 
     public LostAgesJeiPlugin() {
         if (ModList.get().isLoaded("appflux")) IngredientConverters.register(FeIngredient.CONVERTER);
@@ -56,7 +57,8 @@ public final class LostAgesJeiPlugin implements IModPlugin {
     public void onRuntimeAvailable(IJeiRuntime runtime) {
         if (!ModList.get().isLoaded("expatternprovider")) return;
         hideUnconfiguredInfinityCell(runtime);
-        showExtendedInscriber(runtime);
+        showExtendedAeItem(runtime, EXTENDED_INSCRIBER);
+        showExtendedAeItem(runtime, CIRCUIT_SLICER);
     }
 
     private static void hideUnconfiguredInfinityCell(IJeiRuntime runtime) {
@@ -71,8 +73,8 @@ public final class LostAgesJeiPlugin implements IModPlugin {
                 unconfigured.size());
     }
 
-    private static void showExtendedInscriber(IJeiRuntime runtime) {
-        var item = ForgeRegistries.ITEMS.getValue(EXTENDED_INSCRIBER);
+    private static void showExtendedAeItem(IJeiRuntime runtime, ResourceLocation id) {
+        var item = ForgeRegistries.ITEMS.getValue(id);
         if (item == null) return;
         runtime.getIngredientManager().createTypedIngredient(VanillaTypes.ITEM_STACK, new ItemStack(item))
                 .ifPresent(ingredient -> {

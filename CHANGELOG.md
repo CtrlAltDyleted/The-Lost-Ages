@@ -1,3 +1,15 @@
+## 0.3.4
+
+### Added
+- Added the Circuit Slicer back into the game with a custom recipe and added support for its recipes that are removed by Create - Forge Frontier.
+- Also added some recipes for the Applied Create circuits to the Circuit Slicer.
+- Added the `Charged Redstone Block` from the 1.21.1 version of AppliedFlux.
+- Added Sequenced Assembly recipes for Applied Flux's Circuit and Processor.
+
+### Changed
+- The mod now sets ExtendedAE's Assembler Matrix maximum size to 7x7.
+- Fixed recipe for Accumulation Processor using Reaction Chamber.
+
 ## 0.3.3
 
 ### Added

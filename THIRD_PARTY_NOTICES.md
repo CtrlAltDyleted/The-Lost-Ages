@@ -66,3 +66,32 @@ Source: https://github.com/starforcraft/AE2-Import-Export-Card
 The complete MIT License is included in:
 
 licenses/AE2-Import-Export-Card-MIT.txt
+
+## Applied Flux Charged Redstone Block texture
+
+The Lost Ages backports `appflux:charged_redstone_block`, registered under
+the Applied Flux namespace for the supported Forge Frontier dependency set.
+
+The Charged Redstone Block texture is copied unchanged from Applied Flux
+for Minecraft 1.21.1, created and maintained by GlodBlock. It is third-party
+artwork covered by the GNU Lesser General Public License version 3 (LGPLv3),
+including the incorporated GNU General Public License version 3 terms.
+
+Resource path:
+`assets/appflux/textures/block/charged_redstone_block.png`
+
+Source:
+https://github.com/GlodBlock/ExtendedAE/blob/90c23f3744159903e8351a712e4b8cf5eb799dee/src/main/resources/assets/appflux/textures/block/charged_redstone_block.png
+
+The PNG is the unchanged source asset and is included in editable form in
+this repository and the distributed JAR. No additional asset-specific
+license override or artist/copyright notice was found alongside the asset;
+the upstream root `LICENSE.txt` supplies LGPLv3.
+
+The complete license texts are included in:
+- `licenses/Applied-Flux-LGPL-3.0.txt`
+- `licenses/GPL-3.0.txt`
+
+Both texts and this notice are also packaged in the JAR under `META-INF`.
+These terms apply to the reused texture; they do not change The Lost Ages'
+license or copyright ownership for unrelated original code and assets.

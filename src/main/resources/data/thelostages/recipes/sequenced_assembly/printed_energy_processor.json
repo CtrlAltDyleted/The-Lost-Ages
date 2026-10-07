@@ -1,0 +1,48 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "appflux:charged_redstone"
+  },
+  "transitionalItem": {
+    "item": "thelostages:incomplete_printed_energy_processor"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_printed_energy_processor"
+        },
+        {
+          "item": "appflux:energy_processor_press"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_printed_energy_processor"
+        }
+      ],
+      "keepHeldItem": true
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_printed_energy_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_printed_energy_processor"
+        }
+      ]
+    }
+  ],
+  "loops": 1,
+  "results": [
+    {
+      "item": "appflux:printed_energy_processor",
+      "count": 1
+    }
+  ]
+}

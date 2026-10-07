@@ -23,10 +23,10 @@ import org.ctrlaltdyleted.thelostages.TheLostAges;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = TheLostAges.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public final class IncompletePipezItemRendering {
+public final class IncompleteItemRendering {
     private static final int MUTED_COLOR = 0xB0B0B0;
 
-    private IncompletePipezItemRendering() {}
+    private IncompleteItemRendering() {}
 
     @SubscribeEvent
     public static void register(RegisterColorHandlersEvent.Item event) {
@@ -35,14 +35,20 @@ public final class IncompletePipezItemRendering {
                 TheLostAges.INCOMPLETE_BASIC_UPGRADE.get(),
                 TheLostAges.INCOMPLETE_IMPROVED_UPGRADE.get(),
                 TheLostAges.INCOMPLETE_ADVANCED_UPGRADE.get(),
-                TheLostAges.INCOMPLETE_ULTIMATE_UPGRADE.get());
+                TheLostAges.INCOMPLETE_ULTIMATE_UPGRADE.get(),
+                TheLostAges.INCOMPLETE_CIRCUIT_SLICER.get(),
+                TheLostAges.INCOMPLETE_ENERGY_PROCESSOR.get(),
+                TheLostAges.INCOMPLETE_PRINTED_ENERGY_PROCESSOR.get());
     }
 
     @SubscribeEvent
-    public static void tintUniversalPipe(ModelEvent.ModifyBakingResult event) {
-        var modelId = new ModelResourceLocation(
-                new ResourceLocation(TheLostAges.MOD_ID, "incomplete_universal_pipe"), "inventory");
-        event.getModels().computeIfPresent(modelId, (id, model) -> new TintedModel(model));
+    public static void tintIncompleteModels(ModelEvent.ModifyBakingResult event) {
+        for (String name : List.of("incomplete_universal_pipe", "incomplete_circuit_slicer",
+                "incomplete_energy_processor", "incomplete_printed_energy_processor")) {
+            var modelId = new ModelResourceLocation(
+                    new ResourceLocation(TheLostAges.MOD_ID, name), "inventory");
+            event.getModels().computeIfPresent(modelId, (id, model) -> new TintedModel(model));
+        }
     }
 
     private record TintedModel(BakedModel original) implements BakedModel {

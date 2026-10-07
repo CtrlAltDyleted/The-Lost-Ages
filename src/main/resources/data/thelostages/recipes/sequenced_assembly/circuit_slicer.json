@@ -1,0 +1,111 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "expatternprovider:ex_inscriber"
+  },
+  "transitionalItem": {
+    "item": "thelostages:incomplete_circuit_slicer"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        },
+        {
+          "item": "create_dd:steel_casing"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        },
+        {
+          "item": "create_dd:bronze_saw"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        },
+        {
+          "item": "ae2:calculation_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        },
+        {
+          "item": "ae2:engineering_processor"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ],
+      "results": [
+        {
+          "item": "thelostages:incomplete_circuit_slicer"
+        }
+      ]
+    }
+  ],
+  "loops": 1,
+  "results": [
+    {
+      "item": "expatternprovider:circuit_cutter",
+      "count": 1
+    }
+  ]
+}

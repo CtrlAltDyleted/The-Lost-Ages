@@ -1,0 +1,13 @@
+{
+  "type": "expatternprovider:circuit_cutter",
+  "item_input": {
+    "amount": 1,
+    "ingredient": {
+      "tag": "forge:storage_blocks/sky_steel"
+    }
+  },
+  "output": {
+    "count": 9,
+    "item": "megacells:printed_accumulation_processor"
+  }
+}

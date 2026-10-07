@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "appflux:charged_redstone"
+    }
+  },
+  "result": {
+    "item": "appflux:charged_redstone_block",
+    "count": 1
+  }
+}

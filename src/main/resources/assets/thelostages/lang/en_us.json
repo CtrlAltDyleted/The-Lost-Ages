@@ -8,5 +8,8 @@
   "item.thelostages.incomplete_improved_upgrade": "Incomplete Improved Pipe Upgrade",
   "item.thelostages.incomplete_advanced_upgrade": "Incomplete Advanced Pipe Upgrade",
   "item.thelostages.incomplete_ultimate_upgrade": "Incomplete Ultimate Pipe Upgrade",
-  "item.thelostages.incomplete_inscriber": "Incomplete Inscriber"
+  "item.thelostages.incomplete_inscriber": "Incomplete Inscriber",
+  "item.thelostages.incomplete_circuit_slicer": "Incomplete Circuit Slicer",
+  "item.thelostages.incomplete_energy_processor": "Incomplete Energy Processor",
+  "item.thelostages.incomplete_printed_energy_processor": "Incomplete Printed Energy Circuit"
 }
