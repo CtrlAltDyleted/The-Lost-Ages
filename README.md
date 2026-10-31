@@ -1,93 +1,206 @@
+
 # The Lost Ages
 
-<img width="1024" height="1024" alt="thelostagesmod" src="https://github.com/user-attachments/assets/e0ca3a64-9b79-4300-bb77-75000356b40b" />
+<img src="https://github.com/user-attachments/assets/e0ca3a64-9b79-4300-bb77-75000356b40b" alt="The Lost Ages" width="320">
 
-The Lost Ages is an unofficial companion mod for Create: Forge Frontier.
+**The Lost Ages** is an unofficial companion mod for **Create: Forge Frontier**, adding original quests, custom recipes, progression changes, mod integrations, and compatibility improvements.
 
-It adds original quests, recipes, integrations, progression changes, compatibility features, and additional content designed specifically for use with the modpack.
+It is designed specifically for Forge Frontier and is not intended to run as a standalone mod.
 
-## Project Status
+## Project Information
 
-- Current version: 0.3.4
-- Latest published CurseForge release: 0.3.4
-- Minecraft: 1.20.1
-- Forge: 47.4.20
-- Create: Forge Frontier baseline: 3.1.5
+| | |
+|---|---|
+| Current Version | 1.0.0 |
+| Release Status | Pending CurseForge review |
+| Latest Published Version | 0.3.4 |
+| Minecraft | 1.20.1 |
+| Forge | 47.4.20+ |
+| Required Modpack | Create: Forge Frontier 3.1.5 |
+| Author | CtrlAltDyleted |
 
-CurseForge:
-
-https://www.curseforge.com/minecraft/mc-mods/the-lost-ages
+**[Download on CurseForge](https://www.curseforge.com/minecraft/mc-mods/the-lost-ages)**
 
 ## Installation
 
-The Lost Ages is intended for use with Create: Forge Frontier and is not designed as a standalone mod.
+Starting with version 1.0.0, The Lost Ages includes a built-in **Dependency Installer**. The separate Dependency Download Wizard is no longer required.
 
-Install a compatible version of Create: Forge Frontier, then install The Lost Ages and its required dependencies.
+### Client Installation
 
-For a clean Create: Forge Frontier 3.1.5 + instance, The Lost Ages 0.3.4 requires these additional mods:
+1. Install **Create: Forge Frontier 3.1.5** through your preferred Minecraft launcher.
+2. Download `thelostages-1.0.0.jar` and place it in the instance's `mods/` folder.
+3. Launch Minecraft. The Dependency Installer will open if any required add-ons are missing.
+4. Click **Open Required Mods on CurseForge** to open the official download pages. You can also include the two optional resource packs.
+5. Download the files through your browser. The installer monitors your Downloads folder and verifies each file automatically.
+6. Once all required files are verified, click **Install All Required Mods** or **Install All Required Mods and Optional Resource Packs**.
+7. After installation finishes, click **Close Minecraft** and launch the game again.
 
-- AppliedFlux — AppliedFlux-1.20-1.3.7-forge.jar
-- AE2 Network Analyser — AE2NetworkAnalyzer-1.20-1.0.6-forge.jar
-- AE2 Crafting Tree — ae2ct-1.20.1-1.1.1.jar
-- Mob Grinding Utils — mob_grinding_utils-1.20.1-1.1.0.jar
-- Botany Pots — BotanyPots-Forge-1.20.1-13.0.43.jar
-- Botany Pots Tiers — BotanyPotsTiers-Forge-1.20.1-6.0.2.jar (mod version is 6.0.1)
-- Botany Trees — BotanyTrees-Forge-1.20.1-9.0.20.jar
-- Pipez — pipez-forge-1.20.1-1.2.26.jar
-- Pipez Lag Fix — pipezlagfix-1.20.1-1.1.0-all.jar
+The installer copies the verified files into the correct directories. Original downloads remain untouched.
 
-Core requirements such as Forge, Minecraft, KubeJS, FTB Quests, Create, Create Resource Vents, Applied Energistics 2, Ad Astra, Pretty Pipes, Pretty Pipes: Fluids, Create: Dreams & Desires, Create: New Age, and Create: Quality of Life are supplied by the Forge Frontier baseline. Install the same additional mods on the dedicated server and each client.
+### Download Folder Detection
 
-The CurseForge release includes a Dependency Downloader under Additional Files to assist with installing the mod's dependencies that are not already included with Create: Forge Frontier. The [0.3.4 Dependency Download Wizard](Dependency%20Download%20Wizard/0.3.4-Dependency-Download-Wizard/Download-Dependencies.html) is also hosted here on GitHub.
+The installer automatically checks the standard Downloads folder when available.
 
-## Content
+If your browser saves files elsewhere, click **Choose Download Folder** and select the appropriate directory.
 
-The Lost Ages includes:
+The selected folder is remembered for future use. Only that directory is monitored, and files are verified before installation.
 
-- Original quests and quest integrations
+### Required Add-ons
+
+The Lost Ages requires nine additional mods beyond those already included in Forge Frontier:
+
+- Applied Flux
+- AE2 Network Analyser
+- AE2: Crafting Tree
+- Mob Grinding Utils
+- Botany Pots
+- Botany Trees
+- Botany Pots Tiers
+- Pipez
+- Pipez Lag Fix
+
+The Dependency Installer provides links to the exact required versions on CurseForge.
+
+**No external downloader or CurseForge API key is required.** The Lost Ages does not bundle these third-party mod files or download them directly from CurseForge's API or CDN.
+
+### Optional Resource Packs
+
+The following resource packs were included in earlier versions of Create: Forge Frontier:
+
+- **Lopy's Create Style Pipez**
+- **Mob Grinding Utils: Vanillafied**
+
+Both packs are optional. The installer can install them individually or alongside the required mods.
+
+Installed resource packs are placed in `resourcepacks/` and enabled through Forge Frontier's existing OpenLoader configuration when Minecraft restarts.
+
+### Dedicated Servers
+
+Dedicated servers do not display the Dependency Installer or open browser download pages.
+
+Install the nine required add-ons manually using the versions listed in the [dependency catalog](src/bootstrap/resources/dependencies.json).
+
+When dependencies are missing, The Lost Ages writes information to:
+
+`.thelostages/missing-dependencies.txt`
+
+Install the required files into the server's `mods/` folder, then restart the server.
+
+The same required add-ons must be installed on connecting clients.
+
+## Features
+
+### Quests and Progression
+
+- Original quests and quest integrations designed for Forge Frontier
 - Custom recipes and progression changes
-- Applied Energistics 2 and addon integrations
-- AppliedFlux integration
-- Mob Grinding Utils progression and quests
-- Botany Pots, Botany Trees, and Botany Pots Tiers integration
-- Custom Certusite and Skystonium Resource Vents content
-- Curios terminal-slot compatibility
+- Adjustments to existing crafting requirements
+- Compatibility improvements between installed mods
+
+### Applied Energistics 2
+
+- Additional AE2 and ExtendedAE integrations
+- Applied Flux compatibility
+- Curios terminal-slot integration
+- Integration with AE2-related add-ons and crafting systems
+
+### Automation and Resources
+
+- Custom Certusite and Skystonium Resource Vents
+- Mob Grinding Utils progression and integration
+- Botany Pots, Botany Trees, and Botany Pots Tiers support
+- Pipez integration with Pretty Pipes and Create
+- Pipez Lag Fix compatibility
 - Easy Villagers Auto Trader integration
-- Pipez crafting integrated with Pretty Pipes and Create, with Pipez Lag Fix
-- Compatibility and configuration adjustments for Create: Forge Frontier
+
+The Lost Ages also includes configuration adjustments and compatibility fixes intended to make these systems work together within Forge Frontier.
+
+## Compatibility and Managed Files
+
+The Lost Ages assumes an existing **Create: Forge Frontier 3.1.5** installation.
+
+It does not install, update, or enforce the base modpack's dependencies. Its Dependency Installer manages only the additional Lost Ages requirements.
+
+Some gameplay integrations use files and configurations supplied by Forge Frontier.
+
+**The Lost Ages manages certain modpack files automatically.** Files under its management may be restored or modified during startup, so manual changes to those files may be overwritten.
+
+### Dependency Installation Safety
+
+The Dependency Installer verifies downloaded files using pinned SHA-256 hashes, archive checks, and mod metadata.
+
+When replacing an incompatible mod, the installer requires confirmation and preserves backups in:
+
+`.thelostages/backups/`
+
+The installer copies files rather than moving or deleting the original browser downloads.
+
+If Forge rejects duplicate or incompatible mods before the installer opens, manual correction may be necessary.
+
+## Development
+
+The Lost Ages is developed for Minecraft 1.20.1 using Forge 47.4.20 and Java 17.
+
+### Building
+
+Use the included Gradle wrapper:
+
+```powershell
+.\gradlew.bat build
+```
+
+Compile-only reference JARs are expected in `Lost Ages Mods/mods/`, as configured in `build.gradle`.
+
+The resulting release JAR is located at:
+
+`build/libs/thelostages-1.0.0.jar`
+
+The release contains an internal gameplay JAR that is extracted automatically at runtime. Do not install or distribute that internal artifact separately.
+
+### Dependency Installer
+
+The native installer consists of three main components:
+
+- `LostAgesDependencyLocator.java`: Early Forge discovery, dependency detection, and catalog handling
+- `Installation.java`: Download-folder monitoring, file verification, installation, backups, and rollback
+- `ManagerWindow.java`: Swing interface, CurseForge page actions, and installation controls
+
+The catalog at `src/bootstrap/resources/dependencies.json` defines the nine required add-ons and two optional resource packs.
+
+The installer uses Java 17's filesystem monitoring APIs to detect downloaded files. It does not require external services, background applications, or developer API credentials.
+
+The interface uses the Exo font under the SIL Open Font License 1.1. The font license and attribution are included in the repository.
+
+For implementation details, see [CurseForge Workflow and Compliance](CURSEFORGE_COMPLIANCE.md).
 
 ## Quest Authorship
 
-Quest content originally created for The Lost Ages remains original work by CtrlAltDyleted.
+The Lost Ages contains original quests and related content created by **CtrlAltDyleted**.
 
-Some quest content authored by CtrlAltDyleted has also been incorporated into Create: Forge Frontier with permission and attribution.
+Some quests authored by CtrlAltDyleted have also been incorporated into Create: Forge Frontier with permission and attribution.
 
-## Managed Files
-
-The Lost Ages installs and patches files used by Create: Forge Frontier.
-
-Files managed by The Lost Ages may be restored or modified when the game starts. Manual changes to managed files may therefore be overwritten.
+Ownership of original content remains with its respective copyright holder.
 
 ## Unofficial Project Disclaimer
 
-The Lost Ages is an independent, unofficial companion project and is not affiliated with, endorsed by, or maintained by the Create: Forge Frontier developers.
+The Lost Ages is an independent, unofficial companion mod.
 
-Create: Forge Frontier and the names of third-party mods belong to their respective owners. This project does not claim ownership of third-party code, assets, names, or trademarks.
+It is not affiliated with, endorsed by, or maintained by the developers of Create: Forge Frontier.
+
+Create: Forge Frontier and all third-party mod names, assets, and trademarks belong to their respective owners.
 
 ## License
 
-Original content created for The Lost Ages, including original code, scripts, recipes, integrations, quests, documentation, and configuration work, is:
+**Copyright © 2026 CtrlAltDyleted. All Rights Reserved.**
 
-Copyright © 2026 CtrlAltDyleted
+Original code, scripts, recipes, quests, integrations, documentation, configurations, and other original project content are protected by copyright.
 
-All Rights Reserved.
+Public access to the source code does not grant permission to copy, modify, redistribute, relicense, or create derivative works without authorization from the copyright holder.
 
-Public availability of the source code does not grant permission to copy, modify, redistribute, relicense, or create derivative works except where expressly permitted by the copyright holder.
-
-Third-party material included or adapted by the project remains subject to its respective license and attribution requirements.
+Third-party material remains subject to its respective licenses and attribution requirements.
 
 See:
 
-- `LICENSE.txt`
-- `COPYRIGHT.md`
-- `THIRD_PARTY_NOTICES.md`
+- [LICENSE.txt](LICENSE.txt)
+- [COPYRIGHT.md](COPYRIGHT.md)
+- [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)

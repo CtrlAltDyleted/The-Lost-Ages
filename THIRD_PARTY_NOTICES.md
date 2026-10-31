@@ -95,3 +95,16 @@ The complete license texts are included in:
 Both texts and this notice are also packaged in the JAR under `META-INF`.
 These terms apply to the reused texture; they do not change The Lost Ages'
 license or copyright ownership for unrelated original code and assets.
+
+## Exo installer typography
+
+The original Exo Regular and SemiBold fonts are bundled unchanged from
+NDISCOVER/Exo-1.0, commit `3be4f55b626129f17a3b82677703e48c03dc2052`.
+
+Copyright 2017 The Exo Project Authors (https://github.com/NDISCOVER/Exo-1.0)
+
+Source: https://github.com/NDISCOVER/Exo-1.0/tree/3be4f55b626129f17a3b82677703e48c03dc2052/fonts/ttf
+
+The fonts are distributed under the SIL Open Font License, Version 1.1.
+The complete notice and license are in `licenses/Exo-OFL.txt`, packaged in
+the release JAR as `META-INF/third_party/Exo-OFL.txt`.

@@ -1,3 +1,16 @@
+## 1.0.0
+
+### Added
+- Added a built-in Dependency Installer with automatic detection, downloading, and installation of the nine required Lost Ages add-ons
+- Added optional installation of two resource packs
+
+### Changed
+- Restricted ExtendedAE Silicon Block crafting to only AE2 Silicon
+- Removed redundant dependencies for mods already in Forge Frontier
+
+### Removed
+- Retired the Dependency Download Wizard - 07 you served us well.
+
 ## 0.3.4
 
 ### Added

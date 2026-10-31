@@ -1,0 +1,123 @@
+[
+  {
+    "id": "appflux",
+    "name": "Applied Flux",
+    "range": "[1.20-1.3.7-forge]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/applied-flux/download/7651647",
+    "filename": "AppliedFlux-1.20-1.3.7-forge.jar",
+    "sha256": "7673b0e44ee5f247fe224c09b8178f500a01a96e7d07baa77a4a5a110462eaea",
+    "projectId": 965012,
+    "fileId": 7651647
+  },
+  {
+    "id": "ae2netanalyser",
+    "name": "AE2 Network Analyser",
+    "range": "[1.20-1.0.6-forge]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/ae2-network-analyser/download/5107131",
+    "filename": "AE2NetworkAnalyzer-1.20-1.0.6-forge.jar",
+    "sha256": "9c10ab288402b6a01815d58029298fc56dd482f045511ad35104b17e9b6c4393",
+    "projectId": 961856,
+    "fileId": 5107131
+  },
+  {
+    "id": "ae2ct",
+    "name": "AE2: Crafting Tree",
+    "range": "[1.20.1-1.1.1]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/ae2-crafting-tree/download/7182165",
+    "filename": "ae2ct-1.20.1-1.1.1.jar",
+    "sha256": "0996cd736e5a951593f94125c059710800056de8def77995deb7ba6b50099367",
+    "projectId": 1086241,
+    "fileId": 7182165
+  },
+  {
+    "id": "mob_grinding_utils",
+    "name": "Mob Grinding Utils",
+    "range": "[1.20.1-1.1.0]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils/download/5131447",
+    "filename": "mob_grinding_utils-1.20.1-1.1.0.jar",
+    "sha256": "6e0fa6a245fd56cce99d60ac908b5028bc6392a59833c45e0bc3e27ec7f0a2f9",
+    "projectId": 254241,
+    "fileId": 5131447
+  },
+  {
+    "id": "botanypots",
+    "name": "Botany Pots",
+    "range": "[13.0.43]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/botany-pots/download/7612402",
+    "filename": "BotanyPots-Forge-1.20.1-13.0.43.jar",
+    "sha256": "55c0a1457d4ca107d5b1b005310df32672dad59b2ce0c4ca150c525848eed474",
+    "projectId": 353928,
+    "fileId": 7612402
+  },
+  {
+    "id": "botanytrees",
+    "name": "Botany Trees",
+    "range": "[9.0.20]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/botany-trees/download/7612410",
+    "filename": "BotanyTrees-Forge-1.20.1-9.0.20.jar",
+    "sha256": "21d09b967c0555e910b5e1fa52fb96ec95053e396871a005bdf3115def2b6032",
+    "projectId": 411357,
+    "fileId": 7612410
+  },
+  {
+    "id": "botanypotstiers",
+    "name": "Botany Pots Tiers",
+    "range": "[6.0.1]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/botany-pots-tiers/download/5953202",
+    "filename": "BotanyPotsTiers-Forge-1.20.1-6.0.2.jar",
+    "sha256": "94dc6efb45a9adfaadf3a6c95ea9012bfebee3ae29640d43d0bf380920efcb81",
+    "projectId": 526754,
+    "fileId": 5953202
+  },
+  {
+    "id": "pipez",
+    "name": "Pipez",
+    "range": "[1.20.1-1.2.26]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/pipez/download/6945379",
+    "filename": "pipez-forge-1.20.1-1.2.26.jar",
+    "sha256": "f692b0a24c46c954358db8535248021deaf3399973c4e746ba1e3e115a8a48c9",
+    "projectId": 443900,
+    "fileId": 6945379
+  },
+  {
+    "id": "pipezlagfix",
+    "name": "Pipez Lag Fix",
+    "range": "[1.1.0]",
+    "ordering": "AFTER",
+    "page": "https://www.curseforge.com/minecraft/mc-mods/pipez-lag-fix/download/8113994",
+    "filename": "pipezlagfix-1.20.1-1.1.0-all.jar",
+    "sha256": "7192118f61fc19db218a001a5663ba5dc62011114aa6f4692293f4f8c9ff0e00",
+    "projectId": 1446489,
+    "fileId": 8113994
+  },
+  {
+    "id": "create_pipez",
+    "name": "Lopy's Create Style Pipez",
+    "range": "Minecraft 1.20.1",
+    "pack": true,
+    "filename": "Lopy-Create-Pipez.zip",
+    "sha256": "d95bd4e390a7edb25c8c82f00a3095464d11fec672a0df778529690e9a115358",
+    "page": "https://www.curseforge.com/minecraft/texture-packs/create-pipez/download/4691998",
+    "projectId": 901091,
+    "fileId": 4691998
+  },
+  {
+    "id": "mgu_vanillafied",
+    "name": "Mob Grinding Utils: Vanillafied",
+    "range": "Minecraft 1.20.1",
+    "pack": true,
+    "filename": "Mob Grinding Utils Vanillafied.zip",
+    "sha256": "c916eee0b86f98c1b9a32268fa4f06857e512b9b60e786fab4b88be2a40c863e",
+    "page": "https://www.curseforge.com/minecraft/texture-packs/mob-grinding-utils-vanillafied/download/6240614",
+    "projectId": 1208970,
+    "fileId": 6240614
+  }
+]
